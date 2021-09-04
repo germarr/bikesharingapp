@@ -1,98 +1,119 @@
+import pandas as pd
+import numpy as np
+import geopy.distance
 import psycopg2
 import psycopg2.extras
 import csv
-import pandas as pd
 from datetime import datetime, timedelta
 import json
 
-def mainsql():
-    dateforfile = get_date()
-    #dateforfile="df_9_2_2021"
-    new_youtube_table(date=dateforfile)
-    arrange_file(datefile=dateforfile)
-    push_data_to_table(datefile=dateforfile)
-    print("ALL CREATED!")
+#Links of Interest
+#https://www.ecobici.cdmx.gob.mx/es/informacion-del-servicio/open-data
+#https://www.postgresqltutorial.com/postgresql-data-types/
 
-def get_date():
-    today = datetime.today()
-
-    todayasstring = f"df_{today.month}_{today.day}_{today.year}"
-    print(todayasstring)
-    return todayasstring
-
-def new_youtube_table(date):
-    conn = psycopg2.connect("host=34.220.116.144 port=5432 dbname=apidata user=gmarr password=MTia100%s2021!!")
+def new_ecobici_table(date, dbConnection):
+    conn = psycopg2.connect(dbConnection)
     cur = conn.cursor()
     cur.execute(f"""
         CREATE TABLE {date}(
-            video_id text PRIMARY KEY,
-            channel_id text,
-            channel_thumbnail text,
-            publishedAT date,
-            title text,
-            viewCount NUMERIC,
-            likeCount NUMERIC,
-            dislikeCount NUMERIC,
-            commentCount NUMERIC,
-            thumbnail text,
-            link text,
-            video_lang text,
-            categoryId NUMERIC,
-            channel_title text,
-            published_videos NUMERIC,
-            channel_subs NUMERIC,
-            birth_of_channel date,
-            country_of_the_channel text,
-            category_title text,
-            country text,
-            AR NUMERIC, 
-            AU NUMERIC, 
-            BO NUMERIC, 
-            BR NUMERIC,
-            CA NUMERIC, 
-            CL NUMERIC, 
-            CO NUMERIC, 
-            CR NUMERIC, 
-            DE NUMERIC, 
-            EC NUMERIC, 
-            ES NUMERIC, 
-            FR NUMERIC, 
-            GB NUMERIC,
-            INDIA NUMERIC, 
-            IT NUMERIC, 
-            JP NUMERIC,
-            KR NUMERIC, 
-            MX NUMERIC, 
-            PE NUMERIC,
-            PT NUMERIC, 
-            US NUMERIC, 
-            UY NUMERIC, 
-            sum_of_countries NUMERIC
+            id SERIAL PRIMARY KEY,
+            Genero_Usuario text,
+            Edad_Usuario  NUMERIC(4,2),
+            Bici VARCHAR(6),
+            Ciclo_Estacion_Retiro VARCHAR(4),
+            Ciclo_EstacionArribo VARCHAR(4),
+            full_date_retiro date,
+            full_date_aribo date,
+            Mes VARCHAR(4),
+            Hora VARCHAR(4),
+            time_delta VARCHAR(10),
+            viaje VARCHAR(9),
+            name_retiro TEXT,
+            location_lat_retiro float(8),
+            location_lon_retiro float(8),
+            name_arribo TEXT,
+            location_lat_arribo float(8),
+            location_lon_arribo float(8),
+            location_dist NUMERIC
         )
         """)
 
     conn.commit()
-    print("Table Created!")
 
-def arrange_file(datefile):
-    testfile = pd.read_csv(f"./db/{datefile}.csv")
-    v3 = testfile[["video_id","channel_id","channel_thumbnail","publishedAt","title","viewCount","likeCount","dislikeCount","commentCount","thumbnail","link","video_lang","categoryId","channel_title","published_videos","channel_subs","birth_of_channel","country_of_the_channel","category_title","country","AR","AU","BO","BR","CA","CL","CO","CR","DE","EC","ES","FR","GB","IN","IT","JP","KR","MX","PE","PT","US","UY","sum_of_countries"]].set_index("video_id").fillna(0)
-    v3["title"] = [i.replace(",","") for i in v3["title"].to_list()]
-    v3["channel_title"] = [i.replace(",","") for i in v3["channel_title"].to_list()]
-    v3.to_csv(f"./db/{datefile}.csv",sep=',')
-    print("Arrangement Finished!")
+#new_ecobici_table(date=fileName, dbConnection=dbC)
+
+#monthdf=pd.read_csv('./ecobicidata/2021-06.csv').sample(20000)
+
+def transform_df(ene):
+    ene["full_date_retiro"] = pd.to_datetime(ene["Fecha_Retiro"] + " " + ene["Hora_Retiro"], format="%d/%m/%Y %H:%M:%S").copy()
+    ene["full_date_aribo"] = pd.to_datetime(ene["Fecha Arribo"] + " " + ene["Hora_Arribo"], format="%d/%m/%Y %H:%M:%S").copy()
+    ene["Mes"] = ene["full_date_retiro"].dt.month
+    ene["Hora"] = ene["full_date_retiro"].dt.hour
+    ene["time_delta"] = round((ene["full_date_aribo"]  - ene["full_date_retiro"]) / np.timedelta64(1,"m"),2)
+    ene["Ciclo_Estacion_Retiro"]= ene[["Ciclo_Estacion_Retiro"]].astype(str)
+    ene["Ciclo_Estacion_Retiro"] = [i[:-2] for i in ene["Ciclo_Estacion_Retiro"]]
+    ene["Bici"]= ene[["Bici"]].astype(str)
+    ene["Bici"] = [i[:-2] for i in ene["Bici"]]
+    ene["viaje"] = ene["Ciclo_Estacion_Retiro"].astype(str)+"-"+ene["Ciclo_EstacionArribo"].astype(str)
+    return ene.iloc[:,[0,1,2,3,6,9,10,11,12,13,14]]
+
+#df = transform_df(ene=monthdf)
+
+def estaciones_df():
+    estaciones = pd.read_csv("./ecobicidata/estaciones-de-ecobici.csv")[["id","name","districtcode","districtname","location_lat","location_lon","stationtype","punto_geo"]]
+    estaciones["Ciclo_Estacion_Retiro"] = estaciones["id"].astype(str).copy()
+    estaciones["Ciclo_EstacionArribo"] = estaciones["id"].copy()
+    estaciones_retiro = estaciones.iloc[:,[-2,1,2,3,4,5,6,7]].rename(columns={"name":"name_retiro","districtcode":"districtcode_retiro","districtname":"districtname_retiro","location_lat":"location_lat_retiro","location_lon":"location_lon_retiro","stationtype":"stationtype_retiro","punto_geo":"punto_geo_retiro"}).copy().iloc[:,[0,1,4,5,7]]
+    estaciones_arribo = estaciones.iloc[:,[-1,1,2,3,4,5,6,7]].rename(columns={"name":"name_arribo","districtcode":"districtcode_arribo","districtname":"districtname_arribo","location_lat":"location_lat_arribo","location_lon":"location_lon_arribo","stationtype":"stationtype_arribo","punto_geo":"punto_geo_arribo"}).copy().iloc[:,[0,1,4,5,7]]
+    return estaciones_retiro, estaciones_arribo
+
+#estaciones_retiro, estaciones_arribo = estaciones_df()
+
+def mergingfiles(month, er, ea):
+    first = month.merge(er, on="Ciclo_Estacion_Retiro", how="left").merge(ea, on="Ciclo_EstacionArribo", how="left")
+    return first
+
+#exportfile = mergingfiles(month=df, er=estaciones_retiro, ea=estaciones_arribo)
+
+def filetoexport(first, nameOfFile):
+    location_lat_retiro = first["location_lat_retiro"].fillna('19.412182').to_list()
+    location_lon_retiro = first["location_lon_retiro"].fillna('19.412182').to_list()
+    location_lat_arribo = first["location_lat_arribo"].fillna('19.412182').to_list()
+    location_lon_arribo = first["location_lon_arribo"].fillna('19.412182').to_list()
+
+    distances = pd.DataFrame({"location_dist":[geopy.distance.distance((location_lat_retiro[i],location_lon_retiro[i]), (location_lat_arribo[i],location_lon_arribo[i])).km for i in range(len(location_lon_arribo))]})
+    
+    l = pd.concat([first, distances], axis=1, join="inner").iloc[:,[0,1,2,3,4,5,6,7,8,9,10,11,12,13,15,16,17,19]]
+    l["Genero_Usuario"] = l["Genero_Usuario"].fillna("X")
+    l.to_csv(f'./ecobicidata/{nameOfFile}_resume.csv')
+    return l
+# = filetoexport(first=exportfile, nameOfFile="testfilejune")
 
 def push_data_to_table(datefile):
-    conn = psycopg2.connect("host=34.220.116.144 port=5432 dbname=apidata user=gmarr password=MTia100%s2021!!")
+    conn = psycopg2.connect("host=34.66.221.94 port=5432 dbname=ecobici user=postgres password=password")
     cur = conn.cursor()
-    with open(f'./db/{datefile}.csv', 'r', encoding="utf8") as f:
+    with open(f'./ecobicidata/{datefile}_resume.csv', 'r', encoding="utf8") as f:
         # Notice that we don't need the `csv` module.
         next(f) # Skip the header row.
         cur.copy_from(f, f'{datefile}', sep=',')
 
     conn.commit()
+
+def mainI(dbC, fileName):
+    new_ecobici_table(date=fileName, dbConnection=dbC)
+    print("Table Created!")
+
+    monthdf=pd.read_csv(f'./ecobicidata/{fileName}.csv').sample(20000)
+    df = transform_df(ene=monthdf)
+    estaciones_retiro, estaciones_arribo = estaciones_df()
+    exportfile = mergingfiles(month=df, er=estaciones_retiro, ea=estaciones_arribo)
+    l = filetoexport(first=exportfile, nameOfFile=fileName)
+    print("File Adjusted!")
+
+    push_data_to_table(datefile=fileName)
     print("Data Added to Table!")
 
-
 if __name__ == "__main__":
-   mainsql()
+    dconnector="host=34.66.221.94 port=5432 dbname=ecobici user=postgres password=password"
+    nameOfTheFile = "ecobici_jan"
+    mainI(dbC=dconnector,fileName=nameOfTheFile)
