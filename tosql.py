@@ -9,6 +9,7 @@ import json
 
 #Links of Interest
 #https://www.ecobici.cdmx.gob.mx/es/informacion-del-servicio/open-data
+#https://datos.cdmx.gob.mx/dataset/estaciones-de-ecobici/resource/0e5da76b-e551-40ee-9b8c-692167d1fa61
 #https://www.postgresqltutorial.com/postgresql-data-types/
 
 def new_ecobici_table(date, dbConnection):
@@ -89,8 +90,8 @@ def filetoexport(first, nameOfFile):
     return l
 # = filetoexport(first=exportfile, nameOfFile="testfilejune")
 
-def push_data_to_table(datefile):
-    conn = psycopg2.connect("host=34.66.221.94 port=5432 dbname=ecobici user=postgres password=password")
+def push_data_to_table(datefile,dbConnection):
+    conn = psycopg2.connect(dbConnection)
     cur = conn.cursor()
     with open(f'./ecobicidata/{datefile}_resume.csv', 'r', encoding="utf8") as f:
         # Notice that we don't need the `csv` module.
@@ -110,7 +111,7 @@ def mainI(dbC, fileName):
     l = filetoexport(first=exportfile, nameOfFile=fileName)
     print("File Adjusted!")
 
-    push_data_to_table(datefile=fileName)
+    push_data_to_table(datefile=fileName,dbConnection=dbC)
     print("Data Added to Table!")
 
 if __name__ == "__main__":
