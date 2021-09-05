@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 import requests
+from bikescripts import total_trips_per_day, gender_trips
 
 app=FastAPI()
 
@@ -8,13 +9,23 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/")
 def read_root(request:Request):
 
-    # r = requests.get("http://34.220.116.144/streamers/es")
-    # twitch_videos= [r.json()[str(i)] for i in range(len(r.json()))]
+    getMonth = "ecobici_may"
+    tripsChart = total_trips_per_day(fileName=getMonth)
+    genderTrips = gender_trips(fileName=getMonth)
     
     return templates.TemplateResponse("index.html", {
-        "request":request
-        # "twitch_videos":twitch_videos
+        "request":request,
+        "trips":tripsChart,
+        "gender":genderTrips
     })
 
+# @app.get("/totalTrips")
+# def get_trips():
+#     getMonth = "ecobici_may"
+#     tripsChart = total_trips_per_day(fileName=getMonth)
+
+#     return{
+#         "bike_trips":tripsChart
+#     }
 
 

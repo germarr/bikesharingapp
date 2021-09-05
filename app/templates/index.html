@@ -1,13 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
 <div>
-    <div class="flex justify-start items-center pl-6 py-8 bg-blue-500 mb-5">
-        <h1 class="text-white text-2xl font-semibold">Ecobici Dashboard</h1>
-        <div class="flex ml-11">
-            <div class="md:mr-8 mr-14"><a href="#" class="text-lg text-white hover:underline">About</a></div>
-            <div><a href="#" class="text-lg text-white hover:underline">Docs</a></div>
-        </div>
-    </div>
     <div class="grid md:grid-cols-4 grid-cols-2 gap-2 md:gap-4">
         <div class="w-52 h-32 md:w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
             <div class="h-10 bg-red-400 flex items-center">
@@ -54,7 +47,7 @@
         <div>
             <canvas class="shadow-lg p-7" id="myChart" width="400" height="400"></canvas>
         </div>     
-        <div class="grid md:grid-cols-2 grid-cols-1 gap-2 md:gap-2 my-6">
+        <div class="grid md:grid-cols-2 grid-cols-1 gap-2 md:gap-2">
             <div><canvas class="shadow-lg p-7" id="myChartI" width="100" height="100"></canvas></div>
             <div><canvas class="shadow-lg p-7" id="myChartII" width="100" height="100"></canvas></div>
         </div>
@@ -69,14 +62,10 @@
     const donut = new Chart(ctxI, {
         type: 'doughnut',
         data: {
-            labels: [
-                'Red',
-                'Blue',
-                'Yellow'
-            ],
+            labels: {{gender["genero"] | safe}},
             datasets: [{
                 label: 'My First Dataset',
-                data: [300, 50, 100],
+                data: {{gender["tripsGender"]}},
                 backgroundColor: [
                 'rgb(255, 99, 132)',
                 'rgb(54, 162, 235)',
@@ -111,39 +100,46 @@
             }
         });
     var myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: {{trips["listOfDates"] | safe }},
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: '# of Trips',
+                data: {{trips["listOfTrips"] | safe }},
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'rgba(255, 99, 132, 0.2)'
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
+                    'rgba(255, 99, 132, 1)'
                 ],
-                borderWidth: 1
+                borderWidth: 1,
+                tension: 0.2
             }]
         },
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: false,
+                    grid:{
+                        display:false
+                    }
+                },
+                x:{
+                    beginAtZero: true,
+                    grid:{
+                        display:false
+                    }
+                    
                 }
             },
             maintainAspectRatio: false
         }
     });
+</script>
+<script>
+    // const saludo = {{bike_numbers}}
+    const saludoss = {{trips["listOfDates"] | safe }}
+    // console.log(saludo)
+    console.log(saludoss)
 </script>
 {% endblock %}
