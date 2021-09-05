@@ -19,7 +19,7 @@
             <div class="flex px-5 pt-3 mb-2 text-sm text-gray-600">
             <p>AVG.</p>
             </div>
-            <p class="text-3xl ml-5">20,456</p>
+            <p class="text-3xl ml-5">{{stations.median_trips[0]}} min.</p>
             <!-- <hr > -->
         </div>
         <div class="w-52 h-32 md:w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
@@ -29,17 +29,16 @@
             <div class="flex px-5 pt-3 mb-2 text-sm text-gray-600">
             <p>AVG.</p>
             </div>
-            <p class="text-3xl ml-5">20,456</p>
+            <p class="text-3xl ml-5">{{stations.median_distance[0]}} km.</p>
             <!-- <hr > -->
         </div>
         <div class="w-52 h-32 md:w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
             <div class="h-10 bg-indigo-400 flex items-center">
-            <p class="mr-0 text-white text-sm md:text-lg pl-5">MOST POPULAR STATION</p>
+                <p class="mr-0 text-white text-sm md:text-lg pl-5">MOST POPULAR STATION</p>
             </div>
-            <div class="flex px-5 pt-3 mb-2 text-sm text-white">
-            <p>TOTAL</p>
+            <div class="flex px-5 pt-3 mb-2 text-lg text-black font-semibold">
+                <p>{{stations.popularStation.nameStation[0]}}</p>
             </div>
-            <p class="text-3xl ml-5">Station 1</p>
             <!-- <hr > -->
         </div>
     </div>
@@ -52,6 +51,9 @@
             <div><canvas class="shadow-lg p-7" id="myChartII" width="100" height="100"></canvas></div>
         </div>
     </div>
+    <div>
+        
+    </div>
 </div>
 
 <script>
@@ -60,6 +62,7 @@
     const ctxII = document.getElementById('myChartII').getContext('2d');
     
     const donut = new Chart(ctxI, {
+        plugins: [ChartDataLabels],
         type: 'doughnut',
         data: {
             labels: {{gender["genero"] | safe}},
@@ -74,32 +77,72 @@
                 hoverOffset: 4
             }]},
         options: {
+            tooltips:{
+                enabled:false
+            },
+            plugins:{
+                datalabels:{
+                    formatter: function(value, context) {
+                        return context.chart.data.datasets[0].data[context.dataIndex] + '%';
+                    },
+                    display:true,
+                    align:"center",
+                    color:"white",
+                    labels:{
+                        title:{
+                            font:{
+                                size:20,
+                                weight:"bold"
+                            }
+                        }
+                    },
+                    value:{
+                        color:"green"
+                    }
+                }
+            },
             maintainAspectRatio: false
             }
         });
-    const donutI = new Chart(ctxII, {
-        type: 'doughnut',
+
+        const myChartI = new Chart(ctxII, {
+        type: 'bar',
         data: {
-            labels: [
-                'Red',
-                'Blue',
-                'Yellow'
-            ],
+            labels: {{["Mon","Tue","Wed","Thur","Fri","Sat","Sun"] | safe }},
             datasets: [{
-                label: 'My First Dataset',
-                data: [300, 50, 100],
+                label: '# of Trips per Day',
+                data: {{week["trips_per_day"] | safe }},
                 backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
+                    'rgba(101, 178, 198, 0.2)'
                 ],
-                hoverOffset: 4
-            }]},
+                borderColor: [
+                    'rgba(101, 178, 198, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.2
+            }]
+        },
         options: {
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    grid:{
+                        display:false
+                    }
+                },
+                x:{
+                    beginAtZero: true,
+                    grid:{
+                        display:false
+                    }
+                    
+                }
+            },
             maintainAspectRatio: false
-            }
-        });
-    var myChart = new Chart(ctx, {
+        }
+    });
+
+    const myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: {{trips["listOfDates"] | safe }},
@@ -135,11 +178,5 @@
             maintainAspectRatio: false
         }
     });
-</script>
-<script>
-    // const saludo = {{bike_numbers}}
-    const saludoss = {{trips["listOfDates"] | safe }}
-    // console.log(saludo)
-    console.log(saludoss)
 </script>
 {% endblock %}
