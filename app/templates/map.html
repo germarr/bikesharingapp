@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    <div class="grid md:grid-cols-6 mb-6">
+        <div class="col-span-3 shadow rounded-b-lg" id="mapid"></div>
+    </div>
+</div>
+<script>
+const mymap = L.map('mapid').setView([19.373142, -99.17828], 15);
+const marker = L.marker([0, 0]).addTo(mymap);
+marker.setLatLng([19.373142, -99.17828])
+var polylinePoints = [
+        [19.443928, -99.15253],
+        [19.3586, -99.1561]
+    ];            
+    
+var polyline = L.polygon(polylinePoints).addTo(mymap);
+
+var circle = L.circle([19.373142, -99.17828], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+}).addTo(mymap);
+
+const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
+tiles.addTo(mymap);
+
+
+
+</script>
+{% endblock %}

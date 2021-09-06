@@ -42,17 +42,20 @@
             <!-- <hr > -->
         </div>
     </div>
-    <div class="grid md:grid-cols-2 grid-cols-1 gap-2 md:gap-4 my-6">     
+    <div class="grid md:grid-cols-2 grid-cols-1 gap-2 md:gap-4 my-6">    
         <div>
-            <canvas class="shadow-lg p-7" id="myChart" width="400" height="400"></canvas>
+            <canvas class="shadow-lg p-7" id="myChart" height="220"></canvas>
         </div>     
         <div class="grid md:grid-cols-2 grid-cols-1 gap-2 md:gap-2">
-            <div><canvas class="shadow-lg p-7" id="myChartI" width="100" height="100"></canvas></div>
-            <div><canvas class="shadow-lg p-7" id="myChartII" width="100" height="100"></canvas></div>
+            <div><canvas class="shadow-lg p-7" id="myChartI"  height="220"></canvas></div>
+            <div><canvas class="shadow-lg p-7" id="myChartII" height="220"></canvas></div>
         </div>
     </div>
-    <div>
-        
+    <div class="grid md:grid-cols-2 grid-cols-1 gap-2 md:gap-4 my-6">
+        <div class="grid-span-1"></div> 
+        <div class="grid-span-1">
+            <div><canvas class="shadow-lg p-7" id="myChartIII"  height="280"></canvas></div>
+        </div>  
     </div>
 </div>
 
@@ -60,7 +63,8 @@
     const ctx = document.getElementById('myChart').getContext('2d');
     const ctxI = document.getElementById('myChartI').getContext('2d');
     const ctxII = document.getElementById('myChartII').getContext('2d');
-    
+    const ctxIII = document.getElementById('myChartIII').getContext('2d');
+
     const donut = new Chart(ctxI, {
         plugins: [ChartDataLabels],
         type: 'doughnut',
@@ -91,7 +95,7 @@
                     labels:{
                         title:{
                             font:{
-                                size:20,
+                                size:12,
                                 weight:"bold"
                             }
                         }
@@ -99,7 +103,14 @@
                     value:{
                         color:"green"
                     }
-                }
+                },
+                title:{
+                    display:true,
+                    text:"Distribution by Gender.",
+                    font:{
+                        size:16,
+                        weight:"bold"}
+                    }
             },
             maintainAspectRatio: false
             }
@@ -138,7 +149,16 @@
                     
                 }
             },
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+            plugins:{
+                title:{
+                    display:true,
+                    text:"Distribution by Day of the Week.",
+                    font:{
+                        size:16,
+                        weight:"bold"}
+                    }
+            },
         }
     });
 
@@ -160,6 +180,15 @@
             }]
         },
         options: {
+            plugins:{
+                title:{
+                    display:true,
+                    text:"Monthly Trips Distribution.",
+                    font:{
+                        size:16,
+                        weight:"bold"}
+                    }
+            },
             scales: {
                 y: {
                     beginAtZero: false,
@@ -178,5 +207,49 @@
             maintainAspectRatio: false
         }
     });
+
+    const scatterP = new Chart(ctxIII,{
+        type:"scatter",
+        data:{
+            labels:{{tripsH["hora"] | safe}},
+            datasets:[{
+                radius:5,
+                label:"Scatter Week",
+                data:{{tripsH["amountOfTrips"]}},
+                backgroundColor: [
+                    'rgba(111, 105, 172, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(111, 105, 172, 1)'
+                ],
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Trips During the Day.'
+                }
+            },
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    grid:{
+                        display:true
+                    }
+                },
+                x:{
+                    grid:{
+                        display:false
+                    }
+                    
+                }
+            },
+        }
+    })
 </script>
 {% endblock %}

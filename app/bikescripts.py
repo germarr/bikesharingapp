@@ -158,6 +158,31 @@ def cards_stats(fileName):
 
     return weekChart
 
+def trip_hours(fileName):
+    q= f"""
+    SELECT CAST(hora as text), trips_on_hour FROM(SELECT 
+	CAST(hora as int), count(*) as trips_on_hour
+    FROM public.{fileName}
+    WHERE full_date_retiro >= '2021-07-01'
+    GROUP BY hora
+    ORDER BY hora asc) as tb1
+    """
+    
+    conn = psycopg2.connect(dconnector)
+    cur = conn.cursor(cursor_factory = psycopg2.extras.RealDictCursor)
+    cur.execute(q)
+    fulldf = cur.fetchall()
+
+    hourOfTrip=[str(i["hora"]) for i in fulldf]
+    amountofTrips = [int(i["trips_on_hour"]) for i in fulldf]
+
+    tripsHour= {
+        "hora":hourOfTrip,
+        "amountOfTrips":amountofTrips
+    }
+
+    return tripsHour
+
 
 if __name__ == "__main__":
     total_trips_per_day()
