@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    <div class="grid md:grid-cols-12">
+        <div class="col-start-2 col-end-7 shadow rounded-b-lg" id="mapid"></div>
+        
+    </div>
+    <div class="flex bg-gray-200 py-3"></div>
+    <div class="grid md:grid-cols-6">
+        {% for i in stations %}
+            <div class="bg-white rounded shadow-lg p-11 m-3">
+                <p class="text-black">{{i.address}}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+const lat = {{stationsI.location_lat}}
+const lon = {{stationsI.location_lon}}
+
+// const listE = []
+
+// for (let i = 0; i < lat.length; i++) {
+//   listE.push(`${lat[i]},${lon[i]}`)
+// }
+
+console.log(lat[0],lon[0])
+
+const mymap = L.map('mapid').setView([lat[0],lon[0]], 11);
+// const marker = L.marker([lat[0],lon[0]]).addTo(mymap);
+// marker.setLatLng([lat[0],lon[0]])
+
+// for (var i = 0; i < lat.length; i++) {
+//   let marker = new L.marker([lat[i], lon[i]])
+//     // .bindPopup(locations[i][0])
+//     .addTo(mymap);
+// }
+
+
+for (var i = 0; i < lat.length; i++) {
+        let circle = L.circle([lat[i], lon[i]], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 50
+    }).addTo(mymap);
+}
+
+
+// var polylinePoints = [
+//         [19.443928, -99.15253],
+//         [19.3586, -99.1561]
+//     ];            
+// var polyline = L.polygon(polylinePoints).addTo(mymap);
+
+// var circle = L.circle([19.373142, -99.17828], {
+//     color: 'red',
+//     fillColor: '#f03',
+//     fillOpacity: 0.5,
+//     radius: 500
+// }).addTo(mymap);
+
+const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
+tiles.addTo(mymap);
+</script>
+
+{% endblock %}

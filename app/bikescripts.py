@@ -10,8 +10,6 @@ def total_trips_per_day(fileName):
             full_date_retiro, COUNT(*) as viajes_totales 
         FROM 
             public.{fileName} 
-        WHERE 
-            full_date_retiro >= '2021-07-01'
         group by 
             full_date_retiro 
         order by 
@@ -37,8 +35,6 @@ def gender_trips(fileName):
             genero_usuario, COUNT(*) as pct
         FROM 
             public.{fileName} 
-        WHERE 
-            full_date_retiro >= '2021-07-01'
         GROUP BY genero_usuario
         """
     conn = psycopg2.connect(dconnector)
@@ -71,8 +67,6 @@ def trips_on_week(fileName):
         EXTRACT(ISODOW FROM full_date_aribo) as dia_semana, count(*) as trips_per_day
     FROM 
         public.{fileName} 
-    WHERE 
-        full_date_retiro >= '2021-07-01'
     GROUP BY
         dia_semana
     ORDER BY
@@ -98,8 +92,6 @@ def cards_stats(fileName):
 	    PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY CAST(time_delta AS double precision)) as median_trips
     FROM 
 	    public.{fileName}
-    WHERE 
-        full_date_retiro >= '2021-07-01'
     """
 
     qI=f"""
@@ -107,8 +99,6 @@ def cards_stats(fileName):
 	    ROUND(CAST(float8 (PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY location_dist)) as numeric), 2) as median_distance
     FROM 
         public.{fileName}
-    WHERE 
-        full_date_retiro >= '2021-07-01'
     """
 
     qII =f"""
@@ -116,8 +106,6 @@ def cards_stats(fileName):
 	    name_retiro, count(*) as trip_inits
     FROM 
         public.{fileName}
-    WHERE 
-        full_date_retiro >= '2021-07-01'
     GROUP BY 
         name_retiro
     ORDER BY 
@@ -163,7 +151,6 @@ def trip_hours(fileName):
     SELECT CAST(hora as text), trips_on_hour FROM(SELECT 
 	CAST(hora as int), count(*) as trips_on_hour
     FROM public.{fileName}
-    WHERE full_date_retiro >= '2021-07-01'
     GROUP BY hora
     ORDER BY hora asc) as tb1
     """

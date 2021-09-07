@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    <div class="grid md:grid-cols-12">
+        <div class="col-start-2 col-end-6 shadow rounded-b-lg" id="mapid"></div>
+        <div class="col-start-7 col-end-10">
+
+            <div class="shadow-md p-4">
+                <div class="">
+                    <div class="flex flex-col">
+                        <div class="flex space-x-8 w-56">
+                            <div class="">
+                                <div class="uppercase text-sm text-gray-400">
+                                    Most Starts
+                                </div>
+                                <div class="mt-1">
+                                    <div class="flex space-x-8 items-center">
+                                        <div class="text-md">
+                                            {{trip_dict[0]["name_retiro"] | safe}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shadow-md p-4">
+                <div class="">
+                    <div class="flex flex-col">
+                        <div class="flex space-x-8 w-56">
+                            <div class="">
+                                <div class="uppercase text-sm text-gray-400">
+                                    Most Finishes
+                                </div>
+                                <div class="mt-1">
+                                    <div class="flex space-x-8 items-center">
+                                        <div class="text-md">
+                                            {{trip_dictI[0]["name_arribo"] | safe}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="flex bg-gray-200 py-3"></div>
+    <div class="grid md:grid-cols-12">
+        <div class="col-start-2 col-end-7">
+        </div>
+    </div>
+</div>
+
+<script>
+    const lat = {{list_of_trips.location_lat_retiro}}
+    const lon = {{list_of_trips.location_lon_retiro}}
+    const trips = {{list_of_trips.trips}}
+    const name = {{list_of_trips.name_retiro | safe}}
+    
+    const latI = {{stationsI.location_lat}}
+    const lonI = {{stationsI.location_lon}}
+
+
+    console.log({{list_of_trips | safe}})
+    console.log({{lon}})
+
+    const mymap = L.map('mapid').setView([19.41696,-99.1657], 13);
+    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
+    tiles.addTo(mymap);
+
+    for (var i = 0; i < latI.length; i++) {
+            let circle = L.circle([latI[i], lonI[i]], {
+            color: '#65b2c6',
+            fillColor: '#65b2c6',
+            fillOpacity: 0.5,
+            radius: 50
+        })
+        .addTo(mymap);
+    }
+
+    for (var i = 0; i < lat.length; i++) {
+        let circle = L.circle([lat[i], lon[i]], {
+        color: '#d73d6c',
+        fillColor: '#d73d6c',
+        fillOpacity: 0.5,
+        radius: Math.sqrt(trips[i]) * 20
+    })
+        .bindPopup(name[i])
+        .addTo(mymap);
+    }  
+
+</script>
+
+{% endblock %}

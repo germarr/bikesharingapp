@@ -47,12 +47,12 @@ def new_ecobici_table(date, dbConnection):
 
 def transform_df(ene):
     ene["full_date_retiro"] = pd.to_datetime(ene["Fecha_Retiro"] + " " + ene["Hora_Retiro"], format="%d/%m/%Y %H:%M:%S").copy()
-    ene["full_date_aribo"] = pd.to_datetime(ene["Fecha Arribo"] + " " + ene["Hora_Arribo"], format="%d/%m/%Y %H:%M:%S").copy()
+    ene["full_date_aribo"] = pd.to_datetime(ene["Fecha_Arribo"] + " " + ene["Hora_Arribo"], format="%d/%m/%Y %H:%M:%S").copy()
     ene["Mes"] = ene["full_date_retiro"].dt.month
     ene["Hora"] = ene["full_date_retiro"].dt.hour
     ene["time_delta"] = round((ene["full_date_aribo"]  - ene["full_date_retiro"]) / np.timedelta64(1,"m"),2)
     ene["Ciclo_Estacion_Retiro"]= ene[["Ciclo_Estacion_Retiro"]].astype(str)
-    ene["Ciclo_Estacion_Retiro"] = [i[:-2] for i in ene["Ciclo_Estacion_Retiro"]]
+    ene["Ciclo_Estacion_Retiro"] = [i for i in ene["Ciclo_Estacion_Retiro"]]
     ene["Bici"]= ene[["Bici"]].astype(str)
     ene["Bici"] = [i[:-2] for i in ene["Bici"]]
     ene["viaje"] = ene["Ciclo_Estacion_Retiro"].astype(str)+"-"+ene["Ciclo_EstacionArribo"].astype(str)
@@ -86,7 +86,17 @@ def filetoexport(first, nameOfFile):
     
     l = pd.concat([first, distances], axis=1, join="inner").iloc[:,[0,1,2,3,4,5,6,7,8,9,10,11,12,13,15,16,17,19]]
     l["Genero_Usuario"] = l["Genero_Usuario"].fillna("X")
-    l.to_csv(f'./ecobicidata/{nameOfFile}_resume.csv')
+
+    # l["Ciclo_Estacion_Retiro"] = l["Ciclo_Estacion_Retiro"].fillna(0.0)
+    # l["name_retiro"] = l["Ciclo_Estacion_Retiro"].fillna(0.0)
+    # l["location_lat_retiro"] = l["location_lat_retiro"].fillna(0.0)
+    # l["location_lon_retiro"] = l["location_lon_retiro"].fillna(0.0)
+    # l["location_lat_arribo"] = l["location_lat_retiro"].fillna(0.0)
+    # l["location_lon_arribo"] = l["location_lon_retiro"].fillna(0.0)
+    # l["name_arribo"] = l["name_arribo"].fillna("No Station")
+    
+
+    l.dropna(axis=0).to_csv(f'./ecobicidata/{nameOfFile}_resume.csv')
     return l
 # = filetoexport(first=exportfile, nameOfFile="testfilejune")
 
@@ -101,9 +111,6 @@ def push_data_to_table(datefile,dbConnection):
     conn.commit()
 
 def mainI(dbC, fileName):
-    new_ecobici_table(date=fileName, dbConnection=dbC)
-    print("Table Created!")
-
     monthdf=pd.read_csv(f'./ecobicidata/{fileName}.csv').sample(20000)
     df = transform_df(ene=monthdf)
     estaciones_retiro, estaciones_arribo = estaciones_df()
@@ -111,10 +118,13 @@ def mainI(dbC, fileName):
     l = filetoexport(first=exportfile, nameOfFile=fileName)
     print("File Adjusted!")
 
+    new_ecobici_table(date=fileName, dbConnection=dbC)
+    print("Table Created!")
+
     push_data_to_table(datefile=fileName,dbConnection=dbC)
     print("Data Added to Table!")
 
 if __name__ == "__main__":
     dconnector="host=34.66.221.94 port=5432 dbname=ecobici user=postgres password=password"
-    nameOfTheFile = "ecobici_jan"
+    nameOfTheFile = "all_year"
     mainI(dbC=dconnector,fileName=nameOfTheFile)

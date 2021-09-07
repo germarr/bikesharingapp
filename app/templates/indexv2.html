@@ -1,0 +1,269 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    <div class="flex justify-start items-center ml-7 mb-5">
+        <div>
+            <p class="text-4xl font-bold">Monthly Stats</p>
+        </div>
+    </div>
+    <div class="grid md:grid-cols-4 grid-cols-2 gap-2 md:gap-4">
+        <div class="w-52 h-32 md:w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
+            <div class="h-10 bg-red-400 flex items-center">
+            <p class="mr-0 text-white text-lg pl-5">TRIPS</p>
+            </div>
+            <div class="flex px-5 pt-3 mb-2 text-sm text-gray-600">
+            <p>TOTAL</p>
+            </div>
+            <p class="text-3xl ml-5">20,456</p>
+            <!-- <hr > -->
+        </div>
+        <div class="w-52 h-32 md:w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
+            <div class="h-10 bg-green-400 flex items-center">
+            <p class="mr-0 text-white text-lg pl-5">TRIP TIME</p>
+            </div>
+            <div class="flex px-5 pt-3 mb-2 text-sm text-gray-600">
+            <p>AVG.</p>
+            </div>
+            <p class="text-3xl ml-5">11.12 min.</p>
+            <!-- <hr > -->
+        </div>
+        <div class="w-52 h-32 md:w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
+            <div class="h-10 bg-blue-400 flex items-center">
+            <p class="mr-0 text-white text-lg pl-5">TRIP DISTANCE</p>
+            </div>
+            <div class="flex px-5 pt-3 mb-2 text-sm text-gray-600">
+            <p>AVG.</p>
+            </div>
+            <p class="text-3xl ml-5">1,800 km.</p>
+            <!-- <hr > -->
+        </div>
+        <div class="w-52 h-32 md:w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
+            <div class="h-10 bg-indigo-400 flex items-center">
+                <p class="mr-0 text-white text-sm md:text-lg pl-5">MOST POPULAR STATION</p>
+            </div>
+            <div class="flex px-5 pt-3 mb-2 text-lg text-black font-semibold">
+                <p>271 AV. CENTRAL-J. MENESES</p>
+            </div>
+            <!-- <hr > -->
+        </div>
+    </div>
+    <div class="grid md:grid-cols-2 grid-cols-1 gap-2 md:gap-4 my-6">    
+        <div>
+            <canvas class="shadow-lg p-7" id="myChart"></canvas>
+        </div>     
+        <div class="grid md:grid-cols-2 grid-cols-1 gap-2 md:gap-2">
+            <div><canvas class="shadow-lg p-5" id="myChartI"></canvas></div>
+            <div><canvas class="shadow-lg p-7" id="myChartII" height="358"></canvas></div>
+        </div>
+    </div>
+    <div class="grid md:grid-cols-2 grid-cols-1 gap-2 md:gap-4 my-6">
+        <div class="grid-span-1">
+            <div class="col-start-2 col-end-6 shadow rounded-b-lg h-36" id="mapid"></div>
+        </div> 
+        <div class="grid-span-1">
+            <div><canvas class="shadow-lg p-7" id="myChartIII" height="250"></canvas></div>
+        </div>  
+    </div>
+</div>
+
+<script>
+    console.log({{fake_data.topBike.last_trips | safe}})
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const ctxI = document.getElementById('myChartI').getContext('2d');
+    const ctxII = document.getElementById('myChartII').getContext('2d');
+    const ctxIII = document.getElementById('myChartIII').getContext('2d');
+
+    const donut = new Chart(ctxI, {
+        plugins: [ChartDataLabels],
+        type: 'doughnut',
+        data: {
+            labels: ["M","F","X"],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [60,35,5],
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4
+            }]},
+        options: {
+            tooltips:{
+                enabled:false
+            },
+            plugins:{
+                datalabels:{
+                    formatter: function(value, context) {
+                        return context.chart.data.datasets[0].data[context.dataIndex] + '%';
+                    },
+                    display:true,
+                    align:"center",
+                    color:"white",
+                    labels:{
+                        title:{
+                            font:{
+                                size:15,
+                                weight:"bold"
+                            }
+                        }
+                    },
+                    value:{
+                        color:"green"
+                    }
+                },
+                title:{
+                    display:true,
+                    text:"Distribution by Gender.",
+                    font:{
+                        size:16,
+                        weight:"bold"}
+                    }
+            },
+            maintainAspectRatio: true
+            }
+        });
+
+        const myChartI = new Chart(ctxII, {
+        type: 'bar',
+        data: {
+            labels: {{["Mon","Tue","Wed","Thur","Fri","Sat","Sun"] | safe }},
+            datasets: [{
+                label: '# of Trips per Day',
+                data: [20,30,15,40,35,15,7],
+                backgroundColor: [
+                    'rgba(101, 178, 198, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(101, 178, 198, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.2
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    grid:{
+                        display:false
+                    }
+                },
+                x:{
+                    beginAtZero: true,
+                    grid:{
+                        display:false
+                    }
+                    
+                }
+            },
+            maintainAspectRatio: true,
+            plugins:{
+                title:{
+                    display:true,
+                    text:"Distribution by Day of the Week.",
+                    font:{
+                        size:16,
+                        weight:"bold"}
+                    }
+            },
+        }
+    });
+
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["2021-07-01","2021-07-02","2021-07-03","2021-07-04","2021-07-05","2021-07-06","2021-07-07"],
+            datasets: [{
+                label: '# of Trips',
+                data: [1800,1900,1500,1200,1900,1700,1000],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.2
+            }]
+        },
+        options: {
+            plugins:{
+                title:{
+                    display:true,
+                    text:"Monthly Trips Distribution.",
+                    font:{
+                        size:16,
+                        weight:"bold"}
+                    }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    grid:{
+                        display:false
+                    }
+                },
+                x:{
+                    beginAtZero: true,
+                    grid:{
+                        display:false
+                    }
+                    
+                }
+            },
+            maintainAspectRatio: true
+        }
+    });
+
+    const scatterP = new Chart(ctxIII,{
+        type:"scatter",
+        data:{
+            labels:[7,8,9,10,11,12],
+            datasets:[{
+                radius:5,
+                label:"Scatter Week",
+                data:[20,30,15,20,30,15],
+                backgroundColor: [
+                    'rgba(111, 105, 172, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(111, 105, 172, 1)'
+                ],
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Trips During the Day.'
+                }
+            },
+            maintainAspectRatio: true,
+            scales: {
+                y: {
+                    grid:{
+                        display:true
+                    }
+                },
+                x:{
+                    grid:{
+                        display:false
+                    }
+                    
+                }
+            },
+        }
+    })
+
+
+    const mymap = L.map('mapid').setView([19.41696,-99.1657], 13);
+    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
+    tiles.addTo(mymap);
+
+</script>
+{% endblock %}
