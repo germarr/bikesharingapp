@@ -4,7 +4,6 @@
     <div class="grid md:grid-cols-12">
         <div class="col-start-2 col-end-6 shadow rounded-b-lg" id="mapid"></div>
         <div class="col-start-7 col-end-10">
-
             <div class="shadow-md p-4">
                 <div class="">
                     <div class="flex flex-col">
@@ -46,12 +45,12 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
     <div class="flex bg-gray-200 py-3"></div>
     <div class="grid md:grid-cols-12">
-        <div class="col-start-2 col-end-7">
+        <div class="col-start-2 col-end-6 shadow rounded-b-lg">
+            <div id="mapidII"></div>
         </div>
     </div>
 </div>
@@ -61,13 +60,9 @@
     const lon = {{list_of_trips.location_lon_retiro}}
     const trips = {{list_of_trips.trips}}
     const name = {{list_of_trips.name_retiro | safe}}
-    
     const latI = {{stationsI.location_lat}}
     const lonI = {{stationsI.location_lon}}
 
-
-    console.log({{list_of_trips | safe}})
-    console.log({{lon}})
 
     const mymap = L.map('mapid').setView([19.41696,-99.1657], 13);
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
@@ -93,6 +88,45 @@
         .bindPopup(name[i])
         .addTo(mymap);
     }  
+
+    console.log('>>>',{{topStation[0] | safe }});
+
+
+    const latII = {{topStation | safe}}
+    const latarribo = []
+    const lonarribo = []
+    const latretiro = []
+    const lonretiro = []
+    
+    for (let i = 0; i < latII.length; i++) {
+        latarribo.push(latII[i]["location_lat_arribo"])
+        lonarribo.push(latII[i]["location_lon_arribo"])
+        latretiro.push(latII[i]["location_lat_retiro"])
+        lonretiro.push(latII[i]["location_lon_retiro"])
+
+    }
+
+    console.log(latarribo[0],lonarribo[0],latretiro[0],lonretiro[0])
+
+    const mymapII = L.map('mapidII').setView([19.41696,-99.1657], 13);
+    const tilesII = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
+    tilesII.addTo(mymapII);
+
+
+    for (var i = 0; i < latII.length; i++) {
+            let polyline = L.polyline([[latarribo[i],lonarribo[i]],[latretiro[i], lonretiro[i]]])
+            .addTo(mymapII);
+    }
+
+    for (var i = 0; i < latI.length; i++) {
+            let circle = L.circle([latI[i], lonI[i]], {
+            color: '#65b2c6',
+            fillColor: '#65b2c6',
+            fillOpacity: 0.5,
+            radius: 50
+        })
+        .addTo(mymapII);
+}
 
 </script>
 

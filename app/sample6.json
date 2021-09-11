@@ -1,0 +1,1637 @@
+{
+    "trips_per_month": {
+        "month": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            12.0
+        ],
+        "trips": [
+            38238,
+            43752,
+            52980,
+            52694,
+            56478,
+            55159,
+            52990,
+            8
+        ]
+    },
+    "age_distribution": {
+        "age": [
+            17.0,
+            18.0,
+            19.0,
+            20.0,
+            21.0,
+            22.0,
+            23.0,
+            24.0,
+            25.0,
+            26.0,
+            27.0,
+            28.0,
+            29.0,
+            30.0,
+            31.0,
+            32.0,
+            33.0,
+            34.0,
+            35.0,
+            36.0,
+            37.0,
+            38.0,
+            39.0,
+            40.0,
+            41.0,
+            42.0,
+            43.0,
+            44.0,
+            45.0,
+            46.0,
+            47.0,
+            48.0,
+            49.0,
+            50.0,
+            51.0,
+            52.0,
+            53.0,
+            54.0,
+            55.0,
+            56.0,
+            57.0,
+            58.0,
+            59.0,
+            60.0,
+            61.0,
+            62.0,
+            63.0,
+            64.0,
+            65.0,
+            66.0,
+            67.0,
+            68.0,
+            69.0,
+            70.0,
+            71.0,
+            72.0,
+            73.0,
+            74.0,
+            75.0,
+            76.0,
+            77.0,
+            78.0,
+            79.0,
+            80.0,
+            81.0,
+            82.0,
+            84.0,
+            89.0,
+            121.0
+        ],
+        "trips": [
+            12,
+            384,
+            1667,
+            2243,
+            3637,
+            4520,
+            6636,
+            8070,
+            10695,
+            14111,
+            15572,
+            18210,
+            17510,
+            18819,
+            18984,
+            18293,
+            15777,
+            14433,
+            13594,
+            12183,
+            11322,
+            10497,
+            8552,
+            8587,
+            7991,
+            7203,
+            6321,
+            5732,
+            5032,
+            5444,
+            4336,
+            4755,
+            4782,
+            4778,
+            3814,
+            3675,
+            2974,
+            3381,
+            2944,
+            2649,
+            2512,
+            2530,
+            3437,
+            2029,
+            1658,
+            1289,
+            1248,
+            919,
+            1210,
+            794,
+            753,
+            767,
+            721,
+            528,
+            482,
+            98,
+            316,
+            216,
+            79,
+            143,
+            97,
+            118,
+            57,
+            124,
+            40,
+            8,
+            2,
+            3,
+            2
+        ]
+    },
+    "median_trip_time": 12.2,
+    "total_trips": 352299,
+    "median_trips_per_bike": 64.0,
+    "top_100_trips": {
+        "name_arribo": [
+            "E391 OSO-FELIX CUEVAS",
+            "E33 LONDRES-FLORENCIA",
+            "E257 MANUEL MARIA CONTRERAS-VILLALONGIN",
+            "E327 GEORGIA -PENNSYLVANIA",
+            "E449 ACAPULCO-PUEBLA",
+            "27 REFORMA-HAVRE",
+            "E260 AV JUAREZ-BALDERAS",
+            "30 HAMBURGO-GENOVA",
+            "E139 TONAL\u00c1-GUANJUATO",
+            "70 PARQUE MEXICO-MICHOACAN",
+            "E296 DIAGONAL SAN ANTONIO-ENRIQUE R\u00c9BSAMEN",
+            "111 GUILLERMO PRIETO-JOAQU\u00cdN VEL\u00c1ZQUEZ DE LE\u00d3N",
+            "41 REFORMA-AV. DE LA REPUBLICA",
+            "426 CERRADA DE POPOCATEPETL-AV. POPOCATEPETL (EJE",
+            "124 CLAUDIO BERNARD-DR. LICEAGA",
+            "E327 GEORGIA -PENNSYLVANIA",
+            "183 GABINO BARRERA-GUILLERMO PRIETO",
+            "11 RIO AMAZONAS-RIO LERMA",
+            "47 GLORIETA CIBELES-OAXACA",
+            "141 ZACATECAS-LUIS CABRERA",
+            "E391 OSO-FELIX CUEVAS",
+            "E155 JALAPA-TLAXCALA",
+            "96 LOPEZ-AYUNTAMIENTO",
+            "82 INDEPENDENCIA-MARROQUI",
+            "125 MORELIA-CIRCULAR DE MORELIA",
+            "34 LIVERPOOL-GENOVA",
+            "E160 ALFONSO HERRERA-GABINO BARRERA",
+            "174 JOAQU\u00cdN GARCIA-IGNACIO MANUEL ALTAMIRANO",
+            "270 DE LA REPUBLICA-PONCIANO ARRIAGA",
+            "1 RIO SENA-RIO BALSAS",
+            "266 AV. JES\u00daS GARCIA-CARLOS J. MENESES",
+            "163 TOLUCA-BAJ\u00cdO",
+            "E360 HERIBERTO FR\u00cdAS-MATIAS ROMERO",
+            "133 COLIMA-MORELIA",
+            "405 DIVISI\u00d3N DEL NORTE-MUNICIPIO LIBRE",
+            "194 CTO MAHATMA GANDHI-AV. PASEO DE LA REFORMA",
+            "1 RIO SENA-RIO BALSAS",
+            "111 GUILLERMO PRIETO-JOAQU\u00cdN VEL\u00c1ZQUEZ DE LE\u00d3N",
+            "80 NUEVO LEON-AGUASCALIENTES",
+            "61 AVENIDA MEXICO-SONORA",
+            "26 REFORMA-VERSALLES",
+            "135 \u00c1LVARO OBREG\u00d3N-MORELIA",
+            "136 \u00c1LVARO OBREG\u00d3N-TONAL\u00c1",
+            "174 JOAQU\u00cdN GARCIA-IGNACIO MANUEL ALTAMIRANO",
+            "66 MAZATLAN-FRANCISCO MARQUEZ",
+            "123 CLAUDIO BERNARD-DR. LAVISTA",
+            "18 REFORMA-RIO RHIN",
+            "151 CAMPECHE-TONAL\u00c1",
+            "135 \u00c1LVARO OBREG\u00d3N-MORELIA",
+            "254 ALFONSO HERRERA-MIGUEL SHULTZ",
+            "E300 PROVIDENCIA -LUZ SAVI\u00d1ON",
+            "64 SONORA-AMSTERDAM",
+            "1 RIO SENA-RIO BALSAS",
+            "35 LIVERPOOL-GENOVA",
+            "E241 EJERCITO NAL-JUAN VAZQUEZ DE LA MELLA",
+            "295 ANAX\u00c1GORAS-EJE 4 SUR XOLA",
+            "E222 ALEJANDRO DUMAS-PRESIDENTE MASARYK",
+            "404 MIGUEL LAURENT-AVENIDA DIVISI\u00d3N DEL NORTE",
+            "217 EULER-AV. HORACIO",
+            "116 LONDRES-ROMA",
+            "183 GABINO BARRERA-GUILLERMO PRIETO",
+            "7 RIO ELBA-RIO LERMA",
+            "56 ALVARO OBREGON-MEDELLIN",
+            "E190 GDOR IGNACIO ESTEVA-MTRO JOS\u00c9 VASCONCELOS",
+            "45 DURANGO-SONORA",
+            "169 PROSPERIDAD-PROGRESO",
+            "107 TOLSA-BALDERAS",
+            "53 FERNANDO MONTES DE OCA-TULA",
+            "262 REPUBLICA DE CUBA-REPUBLICA DE BRASIL",
+            "286 13 DE SEPTIEMBRE-AVENIDA PATRIOTISMO",
+            "E175 MUTUALISMO-JOS\u00c9 MART\u00ed",
+            "270 DE LA REPUBLICA-PONCIANO ARRIAGA",
+            "48 INDEPENDENCIA-AZUETA",
+            "407 PROL. XOCHICALCO-GENERAL EMILIANO ZAPATA",
+            "14 REFORMA-RIO DE PLATA",
+            "62 FERNANDO MONTES DE OCA-AMATLAN",
+            "E434 JOSE MAR\u00cdA OLLOQUI-AMORES",
+            "E257 MANUEL MARIA CONTRERAS-VILLALONGIN",
+            "E33 LONDRES-FLORENCIA",
+            "142 SAN LUIS POTOSI-EJE 2 PTE. MONTERREY",
+            "142 SAN LUIS POTOSI-EJE 2 PTE. MONTERREY",
+            "E449 ACAPULCO-PUEBLA",
+            "77 CHOAPAN-TAMAULIPAS",
+            "174 JOAQU\u00cdN GARCIA-IGNACIO MANUEL ALTAMIRANO",
+            "156 TEPIC-AMENALCO",
+            "53 FERNANDO MONTES DE OCA-TULA",
+            "44 DURANGO-VERACRUZ",
+            "455 PEDREGAL-FERROCARRIL DE CUERNAVACA",
+            "165 BAJ\u00cdO-EJE 2 PTE. MONTERREY",
+            "6 RIO PANUCO-RIO SENA",
+            "18 REFORMA-RIO RHIN",
+            "149 M\u00c9RIDA-ANTONIO ANZA",
+            "151 CAMPECHE-TONAL\u00c1",
+            "92 SAN ILDEFONSO-REPUBLICA DE ARGENTINA",
+            "146 COAHUILA-MANZANILLO",
+            "145 EJE 2 SUR YUCAT\u00c1N-CHIAPAS",
+            "124 CLAUDIO BERNARD-DR. LICEAGA",
+            "113 GENERAL PRIM-VERSALLES",
+            "99 ERNESTO PUGIBET-LUIS MOYA",
+            "23 REFORMA-PRAGA"
+        ],
+        "name_retiro": [
+            "E391 OSO-FELIX CUEVAS",
+            "E33 LONDRES-FLORENCIA",
+            "E257 MANUEL MARIA CONTRERAS-VILLALONGIN",
+            "E327 GEORGIA -PENNSYLVANIA",
+            "E449 ACAPULCO-PUEBLA",
+            "27 REFORMA-HAVRE",
+            "E260 AV JUAREZ-BALDERAS",
+            "30 HAMBURGO-GENOVA",
+            "E139 TONAL\u00c1-GUANJUATO",
+            "70 PARQUE MEXICO-MICHOACAN",
+            "E296 DIAGONAL SAN ANTONIO-ENRIQUE R\u00c9BSAMEN",
+            "174 JOAQU\u00cdN GARCIA-IGNACIO MANUEL ALTAMIRANO",
+            "41 REFORMA-AV. DE LA REPUBLICA",
+            "426 CERRADA DE POPOCATEPETL-AV. POPOCATEPETL (EJE",
+            "82 INDEPENDENCIA-MARROQUI",
+            "E391 OSO-FELIX CUEVAS",
+            "183 GABINO BARRERA-GUILLERMO PRIETO",
+            "11 RIO AMAZONAS-RIO LERMA",
+            "47 GLORIETA CIBELES-OAXACA",
+            "141 ZACATECAS-LUIS CABRERA",
+            "E327 GEORGIA -PENNSYLVANIA",
+            "E155 JALAPA-TLAXCALA",
+            "96 LOPEZ-AYUNTAMIENTO",
+            "124 CLAUDIO BERNARD-DR. LICEAGA",
+            "125 MORELIA-CIRCULAR DE MORELIA",
+            "34 LIVERPOOL-GENOVA",
+            "E160 ALFONSO HERRERA-GABINO BARRERA",
+            "111 GUILLERMO PRIETO-JOAQU\u00cdN VEL\u00c1ZQUEZ DE LE\u00d3N",
+            "270 DE LA REPUBLICA-PONCIANO ARRIAGA",
+            "18 REFORMA-RIO RHIN",
+            "270 DE LA REPUBLICA-PONCIANO ARRIAGA",
+            "165 BAJ\u00cdO-EJE 2 PTE. MONTERREY",
+            "E360 HERIBERTO FR\u00cdAS-MATIAS ROMERO",
+            "133 COLIMA-MORELIA",
+            "405 DIVISI\u00d3N DEL NORTE-MUNICIPIO LIBRE",
+            "194 CTO MAHATMA GANDHI-AV. PASEO DE LA REFORMA",
+            "1 RIO SENA-RIO BALSAS",
+            "111 GUILLERMO PRIETO-JOAQU\u00cdN VEL\u00c1ZQUEZ DE LE\u00d3N",
+            "80 NUEVO LEON-AGUASCALIENTES",
+            "61 AVENIDA MEXICO-SONORA",
+            "271 AV. CENTRAL-J. MENESES",
+            "135 \u00c1LVARO OBREG\u00d3N-MORELIA",
+            "135 \u00c1LVARO OBREG\u00d3N-MORELIA",
+            "183 GABINO BARRERA-GUILLERMO PRIETO",
+            "66 MAZATLAN-FRANCISCO MARQUEZ",
+            "123 CLAUDIO BERNARD-DR. LAVISTA",
+            "1 RIO SENA-RIO BALSAS",
+            "151 CAMPECHE-TONAL\u00c1",
+            "136 \u00c1LVARO OBREG\u00d3N-TONAL\u00c1",
+            "254 ALFONSO HERRERA-MIGUEL SHULTZ",
+            "E300 PROVIDENCIA -LUZ SAVI\u00d1ON",
+            "64 SONORA-AMSTERDAM",
+            "35 LIVERPOOL-GENOVA",
+            "1 RIO SENA-RIO BALSAS",
+            "E241 EJERCITO NAL-JUAN VAZQUEZ DE LA MELLA",
+            "295 ANAX\u00c1GORAS-EJE 4 SUR XOLA",
+            "E222 ALEJANDRO DUMAS-PRESIDENTE MASARYK",
+            "404 MIGUEL LAURENT-AVENIDA DIVISI\u00d3N DEL NORTE",
+            "211 NEWTON-HORACIO",
+            "116 LONDRES-ROMA",
+            "174 JOAQU\u00cdN GARCIA-IGNACIO MANUEL ALTAMIRANO",
+            "7 RIO ELBA-RIO LERMA",
+            "56 ALVARO OBREGON-MEDELLIN",
+            "E190 GDOR IGNACIO ESTEVA-MTRO JOS\u00c9 VASCONCELOS",
+            "45 DURANGO-SONORA",
+            "169 PROSPERIDAD-PROGRESO",
+            "113 GENERAL PRIM-VERSALLES",
+            "53 FERNANDO MONTES DE OCA-TULA",
+            "262 REPUBLICA DE CUBA-REPUBLICA DE BRASIL",
+            "167 GENERAL SALVADOR ALVARADO-PROGRESO",
+            "E175 MUTUALISMO-JOS\u00c9 MART\u00ed",
+            "271 AV. CENTRAL-J. MENESES",
+            "87 GANTE-VENUSTIANO CARRANZA",
+            "407 PROL. XOCHICALCO-GENERAL EMILIANO ZAPATA",
+            "1 RIO SENA-RIO BALSAS",
+            "62 FERNANDO MONTES DE OCA-AMATLAN",
+            "E434 JOSE MAR\u00cdA OLLOQUI-AMORES",
+            "E160 ALFONSO HERRERA-GABINO BARRERA",
+            "E257 MANUEL MARIA CONTRERAS-VILLALONGIN",
+            "154 TUXPAN-TLAXCALA",
+            "142 SAN LUIS POTOSI-EJE 2 PTE. MONTERREY",
+            "E33 LONDRES-FLORENCIA",
+            "66 MAZATLAN-FRANCISCO MARQUEZ",
+            "174 JOAQU\u00cdN GARCIA-IGNACIO MANUEL ALTAMIRANO",
+            "158 HUATABAMPO-EJE 1PTE. CUAUHT\u00c9MOC",
+            "36 PUEBLA-VERACRUZ",
+            "44 DURANGO-VERACRUZ",
+            "455 PEDREGAL-FERROCARRIL DE CUERNAVACA",
+            "163 TOLUCA-BAJ\u00cdO",
+            "35 LIVERPOOL-GENOVA",
+            "18 REFORMA-RIO RHIN",
+            "151 CAMPECHE-TONAL\u00c1",
+            "158 HUATABAMPO-EJE 1PTE. CUAUHT\u00c9MOC",
+            "92 SAN ILDEFONSO-REPUBLICA DE ARGENTINA",
+            "146 COAHUILA-MANZANILLO",
+            "145 EJE 2 SUR YUCAT\u00c1N-CHIAPAS",
+            "124 CLAUDIO BERNARD-DR. LICEAGA",
+            "107 TOLSA-BALDERAS",
+            "99 ERNESTO PUGIBET-LUIS MOYA",
+            "23 REFORMA-PRAGA"
+        ],
+        "num_of_trips": [
+            707,
+            300,
+            292,
+            236,
+            226,
+            215,
+            208,
+            193,
+            176,
+            174,
+            173,
+            168,
+            162,
+            155,
+            155,
+            153,
+            153,
+            150,
+            147,
+            147,
+            143,
+            142,
+            141,
+            141,
+            140,
+            138,
+            135,
+            134,
+            134,
+            133,
+            127,
+            127,
+            126,
+            125,
+            125,
+            125,
+            125,
+            124,
+            123,
+            119,
+            118,
+            118,
+            118,
+            118,
+            117,
+            115,
+            113,
+            111,
+            110,
+            108,
+            107,
+            106,
+            106,
+            105,
+            105,
+            104,
+            103,
+            102,
+            102,
+            102,
+            101,
+            101,
+            100,
+            99,
+            99,
+            98,
+            98,
+            97,
+            97,
+            97,
+            95,
+            95,
+            95,
+            94,
+            94,
+            93,
+            93,
+            93,
+            93,
+            93,
+            92,
+            91,
+            91,
+            91,
+            90,
+            90,
+            89,
+            89,
+            89,
+            89,
+            88,
+            86,
+            86,
+            86,
+            86,
+            86,
+            85,
+            85,
+            85,
+            84
+        ],
+        "dict_of_trips": [
+            {
+                "name_arribo": "E391 OSO-FELIX CUEVAS",
+                "name_retiro": "E391 OSO-FELIX CUEVAS",
+                "viaje": 707
+            },
+            {
+                "name_arribo": "E33 LONDRES-FLORENCIA",
+                "name_retiro": "E33 LONDRES-FLORENCIA",
+                "viaje": 300
+            },
+            {
+                "name_arribo": "E257 MANUEL MARIA CONTRERAS-VILLALONGIN",
+                "name_retiro": "E257 MANUEL MARIA CONTRERAS-VILLALONGIN",
+                "viaje": 292
+            },
+            {
+                "name_arribo": "E327 GEORGIA -PENNSYLVANIA",
+                "name_retiro": "E327 GEORGIA -PENNSYLVANIA",
+                "viaje": 236
+            },
+            {
+                "name_arribo": "E449 ACAPULCO-PUEBLA",
+                "name_retiro": "E449 ACAPULCO-PUEBLA",
+                "viaje": 226
+            },
+            {
+                "name_arribo": "27 REFORMA-HAVRE",
+                "name_retiro": "27 REFORMA-HAVRE",
+                "viaje": 215
+            },
+            {
+                "name_arribo": "E260 AV JUAREZ-BALDERAS",
+                "name_retiro": "E260 AV JUAREZ-BALDERAS",
+                "viaje": 208
+            },
+            {
+                "name_arribo": "30 HAMBURGO-GENOVA",
+                "name_retiro": "30 HAMBURGO-GENOVA",
+                "viaje": 193
+            },
+            {
+                "name_arribo": "E139 TONAL\u00c1-GUANJUATO",
+                "name_retiro": "E139 TONAL\u00c1-GUANJUATO",
+                "viaje": 176
+            },
+            {
+                "name_arribo": "70 PARQUE MEXICO-MICHOACAN",
+                "name_retiro": "70 PARQUE MEXICO-MICHOACAN",
+                "viaje": 174
+            },
+            {
+                "name_arribo": "E296 DIAGONAL SAN ANTONIO-ENRIQUE R\u00c9BSAMEN",
+                "name_retiro": "E296 DIAGONAL SAN ANTONIO-ENRIQUE R\u00c9BSAMEN",
+                "viaje": 173
+            },
+            {
+                "name_arribo": "111 GUILLERMO PRIETO-JOAQU\u00cdN VEL\u00c1ZQUEZ DE LE\u00d3N",
+                "name_retiro": "174 JOAQU\u00cdN GARCIA-IGNACIO MANUEL ALTAMIRANO",
+                "viaje": 168
+            },
+            {
+                "name_arribo": "41 REFORMA-AV. DE LA REPUBLICA",
+                "name_retiro": "41 REFORMA-AV. DE LA REPUBLICA",
+                "viaje": 162
+            },
+            {
+                "name_arribo": "426 CERRADA DE POPOCATEPETL-AV. POPOCATEPETL (EJE",
+                "name_retiro": "426 CERRADA DE POPOCATEPETL-AV. POPOCATEPETL (EJE",
+                "viaje": 155
+            },
+            {
+                "name_arribo": "124 CLAUDIO BERNARD-DR. LICEAGA",
+                "name_retiro": "82 INDEPENDENCIA-MARROQUI",
+                "viaje": 155
+            },
+            {
+                "name_arribo": "E327 GEORGIA -PENNSYLVANIA",
+                "name_retiro": "E391 OSO-FELIX CUEVAS",
+                "viaje": 153
+            },
+            {
+                "name_arribo": "183 GABINO BARRERA-GUILLERMO PRIETO",
+                "name_retiro": "183 GABINO BARRERA-GUILLERMO PRIETO",
+                "viaje": 153
+            },
+            {
+                "name_arribo": "11 RIO AMAZONAS-RIO LERMA",
+                "name_retiro": "11 RIO AMAZONAS-RIO LERMA",
+                "viaje": 150
+            },
+            {
+                "name_arribo": "47 GLORIETA CIBELES-OAXACA",
+                "name_retiro": "47 GLORIETA CIBELES-OAXACA",
+                "viaje": 147
+            },
+            {
+                "name_arribo": "141 ZACATECAS-LUIS CABRERA",
+                "name_retiro": "141 ZACATECAS-LUIS CABRERA",
+                "viaje": 147
+            },
+            {
+                "name_arribo": "E391 OSO-FELIX CUEVAS",
+                "name_retiro": "E327 GEORGIA -PENNSYLVANIA",
+                "viaje": 143
+            },
+            {
+                "name_arribo": "E155 JALAPA-TLAXCALA",
+                "name_retiro": "E155 JALAPA-TLAXCALA",
+                "viaje": 142
+            },
+            {
+                "name_arribo": "96 LOPEZ-AYUNTAMIENTO",
+                "name_retiro": "96 LOPEZ-AYUNTAMIENTO",
+                "viaje": 141
+            },
+            {
+                "name_arribo": "82 INDEPENDENCIA-MARROQUI",
+                "name_retiro": "124 CLAUDIO BERNARD-DR. LICEAGA",
+                "viaje": 141
+            },
+            {
+                "name_arribo": "125 MORELIA-CIRCULAR DE MORELIA",
+                "name_retiro": "125 MORELIA-CIRCULAR DE MORELIA",
+                "viaje": 140
+            },
+            {
+                "name_arribo": "34 LIVERPOOL-GENOVA",
+                "name_retiro": "34 LIVERPOOL-GENOVA",
+                "viaje": 138
+            },
+            {
+                "name_arribo": "E160 ALFONSO HERRERA-GABINO BARRERA",
+                "name_retiro": "E160 ALFONSO HERRERA-GABINO BARRERA",
+                "viaje": 135
+            },
+            {
+                "name_arribo": "174 JOAQU\u00cdN GARCIA-IGNACIO MANUEL ALTAMIRANO",
+                "name_retiro": "111 GUILLERMO PRIETO-JOAQU\u00cdN VEL\u00c1ZQUEZ DE LE\u00d3N",
+                "viaje": 134
+            },
+            {
+                "name_arribo": "270 DE LA REPUBLICA-PONCIANO ARRIAGA",
+                "name_retiro": "270 DE LA REPUBLICA-PONCIANO ARRIAGA",
+                "viaje": 134
+            },
+            {
+                "name_arribo": "1 RIO SENA-RIO BALSAS",
+                "name_retiro": "18 REFORMA-RIO RHIN",
+                "viaje": 133
+            },
+            {
+                "name_arribo": "266 AV. JES\u00daS GARCIA-CARLOS J. MENESES",
+                "name_retiro": "270 DE LA REPUBLICA-PONCIANO ARRIAGA",
+                "viaje": 127
+            },
+            {
+                "name_arribo": "163 TOLUCA-BAJ\u00cdO",
+                "name_retiro": "165 BAJ\u00cdO-EJE 2 PTE. MONTERREY",
+                "viaje": 127
+            },
+            {
+                "name_arribo": "E360 HERIBERTO FR\u00cdAS-MATIAS ROMERO",
+                "name_retiro": "E360 HERIBERTO FR\u00cdAS-MATIAS ROMERO",
+                "viaje": 126
+            },
+            {
+                "name_arribo": "133 COLIMA-MORELIA",
+                "name_retiro": "133 COLIMA-MORELIA",
+                "viaje": 125
+            },
+            {
+                "name_arribo": "405 DIVISI\u00d3N DEL NORTE-MUNICIPIO LIBRE",
+                "name_retiro": "405 DIVISI\u00d3N DEL NORTE-MUNICIPIO LIBRE",
+                "viaje": 125
+            },
+            {
+                "name_arribo": "194 CTO MAHATMA GANDHI-AV. PASEO DE LA REFORMA",
+                "name_retiro": "194 CTO MAHATMA GANDHI-AV. PASEO DE LA REFORMA",
+                "viaje": 125
+            },
+            {
+                "name_arribo": "1 RIO SENA-RIO BALSAS",
+                "name_retiro": "1 RIO SENA-RIO BALSAS",
+                "viaje": 125
+            },
+            {
+                "name_arribo": "111 GUILLERMO PRIETO-JOAQU\u00cdN VEL\u00c1ZQUEZ DE LE\u00d3N",
+                "name_retiro": "111 GUILLERMO PRIETO-JOAQU\u00cdN VEL\u00c1ZQUEZ DE LE\u00d3N",
+                "viaje": 124
+            },
+            {
+                "name_arribo": "80 NUEVO LEON-AGUASCALIENTES",
+                "name_retiro": "80 NUEVO LEON-AGUASCALIENTES",
+                "viaje": 123
+            },
+            {
+                "name_arribo": "61 AVENIDA MEXICO-SONORA",
+                "name_retiro": "61 AVENIDA MEXICO-SONORA",
+                "viaje": 119
+            },
+            {
+                "name_arribo": "26 REFORMA-VERSALLES",
+                "name_retiro": "271 AV. CENTRAL-J. MENESES",
+                "viaje": 118
+            },
+            {
+                "name_arribo": "135 \u00c1LVARO OBREG\u00d3N-MORELIA",
+                "name_retiro": "135 \u00c1LVARO OBREG\u00d3N-MORELIA",
+                "viaje": 118
+            },
+            {
+                "name_arribo": "136 \u00c1LVARO OBREG\u00d3N-TONAL\u00c1",
+                "name_retiro": "135 \u00c1LVARO OBREG\u00d3N-MORELIA",
+                "viaje": 118
+            },
+            {
+                "name_arribo": "174 JOAQU\u00cdN GARCIA-IGNACIO MANUEL ALTAMIRANO",
+                "name_retiro": "183 GABINO BARRERA-GUILLERMO PRIETO",
+                "viaje": 118
+            },
+            {
+                "name_arribo": "66 MAZATLAN-FRANCISCO MARQUEZ",
+                "name_retiro": "66 MAZATLAN-FRANCISCO MARQUEZ",
+                "viaje": 117
+            },
+            {
+                "name_arribo": "123 CLAUDIO BERNARD-DR. LAVISTA",
+                "name_retiro": "123 CLAUDIO BERNARD-DR. LAVISTA",
+                "viaje": 115
+            },
+            {
+                "name_arribo": "18 REFORMA-RIO RHIN",
+                "name_retiro": "1 RIO SENA-RIO BALSAS",
+                "viaje": 113
+            },
+            {
+                "name_arribo": "151 CAMPECHE-TONAL\u00c1",
+                "name_retiro": "151 CAMPECHE-TONAL\u00c1",
+                "viaje": 111
+            },
+            {
+                "name_arribo": "135 \u00c1LVARO OBREG\u00d3N-MORELIA",
+                "name_retiro": "136 \u00c1LVARO OBREG\u00d3N-TONAL\u00c1",
+                "viaje": 110
+            },
+            {
+                "name_arribo": "254 ALFONSO HERRERA-MIGUEL SHULTZ",
+                "name_retiro": "254 ALFONSO HERRERA-MIGUEL SHULTZ",
+                "viaje": 108
+            },
+            {
+                "name_arribo": "E300 PROVIDENCIA -LUZ SAVI\u00d1ON",
+                "name_retiro": "E300 PROVIDENCIA -LUZ SAVI\u00d1ON",
+                "viaje": 107
+            },
+            {
+                "name_arribo": "64 SONORA-AMSTERDAM",
+                "name_retiro": "64 SONORA-AMSTERDAM",
+                "viaje": 106
+            },
+            {
+                "name_arribo": "1 RIO SENA-RIO BALSAS",
+                "name_retiro": "35 LIVERPOOL-GENOVA",
+                "viaje": 106
+            },
+            {
+                "name_arribo": "35 LIVERPOOL-GENOVA",
+                "name_retiro": "1 RIO SENA-RIO BALSAS",
+                "viaje": 105
+            },
+            {
+                "name_arribo": "E241 EJERCITO NAL-JUAN VAZQUEZ DE LA MELLA",
+                "name_retiro": "E241 EJERCITO NAL-JUAN VAZQUEZ DE LA MELLA",
+                "viaje": 105
+            },
+            {
+                "name_arribo": "295 ANAX\u00c1GORAS-EJE 4 SUR XOLA",
+                "name_retiro": "295 ANAX\u00c1GORAS-EJE 4 SUR XOLA",
+                "viaje": 104
+            },
+            {
+                "name_arribo": "E222 ALEJANDRO DUMAS-PRESIDENTE MASARYK",
+                "name_retiro": "E222 ALEJANDRO DUMAS-PRESIDENTE MASARYK",
+                "viaje": 103
+            },
+            {
+                "name_arribo": "404 MIGUEL LAURENT-AVENIDA DIVISI\u00d3N DEL NORTE",
+                "name_retiro": "404 MIGUEL LAURENT-AVENIDA DIVISI\u00d3N DEL NORTE",
+                "viaje": 102
+            },
+            {
+                "name_arribo": "217 EULER-AV. HORACIO",
+                "name_retiro": "211 NEWTON-HORACIO",
+                "viaje": 102
+            },
+            {
+                "name_arribo": "116 LONDRES-ROMA",
+                "name_retiro": "116 LONDRES-ROMA",
+                "viaje": 102
+            },
+            {
+                "name_arribo": "183 GABINO BARRERA-GUILLERMO PRIETO",
+                "name_retiro": "174 JOAQU\u00cdN GARCIA-IGNACIO MANUEL ALTAMIRANO",
+                "viaje": 101
+            },
+            {
+                "name_arribo": "7 RIO ELBA-RIO LERMA",
+                "name_retiro": "7 RIO ELBA-RIO LERMA",
+                "viaje": 101
+            },
+            {
+                "name_arribo": "56 ALVARO OBREGON-MEDELLIN",
+                "name_retiro": "56 ALVARO OBREGON-MEDELLIN",
+                "viaje": 100
+            },
+            {
+                "name_arribo": "E190 GDOR IGNACIO ESTEVA-MTRO JOS\u00c9 VASCONCELOS",
+                "name_retiro": "E190 GDOR IGNACIO ESTEVA-MTRO JOS\u00c9 VASCONCELOS",
+                "viaje": 99
+            },
+            {
+                "name_arribo": "45 DURANGO-SONORA",
+                "name_retiro": "45 DURANGO-SONORA",
+                "viaje": 99
+            },
+            {
+                "name_arribo": "169 PROSPERIDAD-PROGRESO",
+                "name_retiro": "169 PROSPERIDAD-PROGRESO",
+                "viaje": 98
+            },
+            {
+                "name_arribo": "107 TOLSA-BALDERAS",
+                "name_retiro": "113 GENERAL PRIM-VERSALLES",
+                "viaje": 98
+            },
+            {
+                "name_arribo": "53 FERNANDO MONTES DE OCA-TULA",
+                "name_retiro": "53 FERNANDO MONTES DE OCA-TULA",
+                "viaje": 97
+            },
+            {
+                "name_arribo": "262 REPUBLICA DE CUBA-REPUBLICA DE BRASIL",
+                "name_retiro": "262 REPUBLICA DE CUBA-REPUBLICA DE BRASIL",
+                "viaje": 97
+            },
+            {
+                "name_arribo": "286 13 DE SEPTIEMBRE-AVENIDA PATRIOTISMO",
+                "name_retiro": "167 GENERAL SALVADOR ALVARADO-PROGRESO",
+                "viaje": 97
+            },
+            {
+                "name_arribo": "E175 MUTUALISMO-JOS\u00c9 MART\u00ed",
+                "name_retiro": "E175 MUTUALISMO-JOS\u00c9 MART\u00ed",
+                "viaje": 95
+            },
+            {
+                "name_arribo": "270 DE LA REPUBLICA-PONCIANO ARRIAGA",
+                "name_retiro": "271 AV. CENTRAL-J. MENESES",
+                "viaje": 95
+            },
+            {
+                "name_arribo": "48 INDEPENDENCIA-AZUETA",
+                "name_retiro": "87 GANTE-VENUSTIANO CARRANZA",
+                "viaje": 95
+            },
+            {
+                "name_arribo": "407 PROL. XOCHICALCO-GENERAL EMILIANO ZAPATA",
+                "name_retiro": "407 PROL. XOCHICALCO-GENERAL EMILIANO ZAPATA",
+                "viaje": 94
+            },
+            {
+                "name_arribo": "14 REFORMA-RIO DE PLATA",
+                "name_retiro": "1 RIO SENA-RIO BALSAS",
+                "viaje": 94
+            },
+            {
+                "name_arribo": "62 FERNANDO MONTES DE OCA-AMATLAN",
+                "name_retiro": "62 FERNANDO MONTES DE OCA-AMATLAN",
+                "viaje": 93
+            },
+            {
+                "name_arribo": "E434 JOSE MAR\u00cdA OLLOQUI-AMORES",
+                "name_retiro": "E434 JOSE MAR\u00cdA OLLOQUI-AMORES",
+                "viaje": 93
+            },
+            {
+                "name_arribo": "E257 MANUEL MARIA CONTRERAS-VILLALONGIN",
+                "name_retiro": "E160 ALFONSO HERRERA-GABINO BARRERA",
+                "viaje": 93
+            },
+            {
+                "name_arribo": "E33 LONDRES-FLORENCIA",
+                "name_retiro": "E257 MANUEL MARIA CONTRERAS-VILLALONGIN",
+                "viaje": 93
+            },
+            {
+                "name_arribo": "142 SAN LUIS POTOSI-EJE 2 PTE. MONTERREY",
+                "name_retiro": "154 TUXPAN-TLAXCALA",
+                "viaje": 93
+            },
+            {
+                "name_arribo": "142 SAN LUIS POTOSI-EJE 2 PTE. MONTERREY",
+                "name_retiro": "142 SAN LUIS POTOSI-EJE 2 PTE. MONTERREY",
+                "viaje": 92
+            },
+            {
+                "name_arribo": "E449 ACAPULCO-PUEBLA",
+                "name_retiro": "E33 LONDRES-FLORENCIA",
+                "viaje": 91
+            },
+            {
+                "name_arribo": "77 CHOAPAN-TAMAULIPAS",
+                "name_retiro": "66 MAZATLAN-FRANCISCO MARQUEZ",
+                "viaje": 91
+            },
+            {
+                "name_arribo": "174 JOAQU\u00cdN GARCIA-IGNACIO MANUEL ALTAMIRANO",
+                "name_retiro": "174 JOAQU\u00cdN GARCIA-IGNACIO MANUEL ALTAMIRANO",
+                "viaje": 91
+            },
+            {
+                "name_arribo": "156 TEPIC-AMENALCO",
+                "name_retiro": "158 HUATABAMPO-EJE 1PTE. CUAUHT\u00c9MOC",
+                "viaje": 90
+            },
+            {
+                "name_arribo": "53 FERNANDO MONTES DE OCA-TULA",
+                "name_retiro": "36 PUEBLA-VERACRUZ",
+                "viaje": 90
+            },
+            {
+                "name_arribo": "44 DURANGO-VERACRUZ",
+                "name_retiro": "44 DURANGO-VERACRUZ",
+                "viaje": 89
+            },
+            {
+                "name_arribo": "455 PEDREGAL-FERROCARRIL DE CUERNAVACA",
+                "name_retiro": "455 PEDREGAL-FERROCARRIL DE CUERNAVACA",
+                "viaje": 89
+            },
+            {
+                "name_arribo": "165 BAJ\u00cdO-EJE 2 PTE. MONTERREY",
+                "name_retiro": "163 TOLUCA-BAJ\u00cdO",
+                "viaje": 89
+            },
+            {
+                "name_arribo": "6 RIO PANUCO-RIO SENA",
+                "name_retiro": "35 LIVERPOOL-GENOVA",
+                "viaje": 89
+            },
+            {
+                "name_arribo": "18 REFORMA-RIO RHIN",
+                "name_retiro": "18 REFORMA-RIO RHIN",
+                "viaje": 88
+            },
+            {
+                "name_arribo": "149 M\u00c9RIDA-ANTONIO ANZA",
+                "name_retiro": "151 CAMPECHE-TONAL\u00c1",
+                "viaje": 86
+            },
+            {
+                "name_arribo": "151 CAMPECHE-TONAL\u00c1",
+                "name_retiro": "158 HUATABAMPO-EJE 1PTE. CUAUHT\u00c9MOC",
+                "viaje": 86
+            },
+            {
+                "name_arribo": "92 SAN ILDEFONSO-REPUBLICA DE ARGENTINA",
+                "name_retiro": "92 SAN ILDEFONSO-REPUBLICA DE ARGENTINA",
+                "viaje": 86
+            },
+            {
+                "name_arribo": "146 COAHUILA-MANZANILLO",
+                "name_retiro": "146 COAHUILA-MANZANILLO",
+                "viaje": 86
+            },
+            {
+                "name_arribo": "145 EJE 2 SUR YUCAT\u00c1N-CHIAPAS",
+                "name_retiro": "145 EJE 2 SUR YUCAT\u00c1N-CHIAPAS",
+                "viaje": 86
+            },
+            {
+                "name_arribo": "124 CLAUDIO BERNARD-DR. LICEAGA",
+                "name_retiro": "124 CLAUDIO BERNARD-DR. LICEAGA",
+                "viaje": 85
+            },
+            {
+                "name_arribo": "113 GENERAL PRIM-VERSALLES",
+                "name_retiro": "107 TOLSA-BALDERAS",
+                "viaje": 85
+            },
+            {
+                "name_arribo": "99 ERNESTO PUGIBET-LUIS MOYA",
+                "name_retiro": "99 ERNESTO PUGIBET-LUIS MOYA",
+                "viaje": 85
+            },
+            {
+                "name_arribo": "23 REFORMA-PRAGA",
+                "name_retiro": "23 REFORMA-PRAGA",
+                "viaje": 84
+            }
+        ]
+    },
+    "avg_km_per_trip": 1.38,
+    "avg_time_per_trip_per_year": {
+        "1.0": {
+            "time_delta": 13.43
+        },
+        "2.0": {
+            "time_delta": 13.07
+        },
+        "3.0": {
+            "time_delta": 12.2
+        },
+        "4.0": {
+            "time_delta": 11.95
+        },
+        "5.0": {
+            "time_delta": 11.88
+        },
+        "6.0": {
+            "time_delta": 11.78
+        },
+        "7.0": {
+            "time_delta": 11.98
+        },
+        "12.0": {
+            "time_delta": 71996.36499999999
+        }
+    },
+    "avg_time_delta": 12.09,
+    "topBike": {
+        "trips_per_moth": {
+            "1.0": {
+                "Trips": 15
+            },
+            "2.0": {
+                "Trips": 13
+            },
+            "3.0": {
+                "Trips": 7
+            },
+            "4.0": {
+                "Trips": 17
+            },
+            "5.0": {
+                "Trips": 19
+            },
+            "6.0": {
+                "Trips": 11
+            },
+            "7.0": {
+                "Trips": 19
+            }
+        },
+        "total_km": 172,
+        "last_trips": [
+            {
+                "location_lat_retiro": 19.430992,
+                "location_lon_retiro": -99.163593,
+                "location_lat_arribo": 19.406296,
+                "location_lon_arribo": -99.172117
+            },
+            {
+                "location_lat_retiro": 19.417702,
+                "location_lon_retiro": -99.155313,
+                "location_lat_arribo": 19.401986,
+                "location_lon_arribo": -99.156366
+            },
+            {
+                "location_lat_retiro": 19.406296,
+                "location_lon_retiro": -99.172117,
+                "location_lat_arribo": 19.407517,
+                "location_lon_arribo": -99.155373
+            },
+            {
+                "location_lat_retiro": 19.422392,
+                "location_lon_retiro": -99.150358,
+                "location_lat_arribo": 19.42223,
+                "location_lon_arribo": -99.164297
+            },
+            {
+                "location_lat_retiro": 19.404268,
+                "location_lon_retiro": -99.160503,
+                "location_lat_arribo": 19.407517,
+                "location_lon_arribo": -99.155373
+            },
+            {
+                "location_lat_retiro": 19.404268,
+                "location_lon_retiro": -99.160503,
+                "location_lat_arribo": 19.405246,
+                "location_lon_arribo": -99.156431
+            },
+            {
+                "location_lat_retiro": 19.417715,
+                "location_lon_retiro": -99.162729,
+                "location_lat_arribo": 19.434913,
+                "location_lon_arribo": -99.149939
+            },
+            {
+                "location_lat_retiro": 19.409965,
+                "location_lon_retiro": -99.164292,
+                "location_lat_arribo": 19.380598,
+                "location_lon_arribo": -99.1669248
+            },
+            {
+                "location_lat_retiro": 19.402089,
+                "location_lon_retiro": -99.17139,
+                "location_lat_arribo": 19.415121,
+                "location_lon_arribo": -99.166661
+            },
+            {
+                "location_lat_retiro": 19.426755,
+                "location_lon_retiro": -99.135014,
+                "location_lat_arribo": 19.426755,
+                "location_lon_arribo": -99.135014
+            },
+            {
+                "location_lat_retiro": 19.429115,
+                "location_lon_retiro": -99.162614,
+                "location_lat_arribo": 19.417702,
+                "location_lon_arribo": -99.155313
+            },
+            {
+                "location_lat_retiro": 19.430625,
+                "location_lon_retiro": -99.14248,
+                "location_lat_arribo": 19.436236,
+                "location_lon_arribo": -99.142039
+            },
+            {
+                "location_lat_retiro": 19.367294,
+                "location_lon_retiro": -99.158694,
+                "location_lat_arribo": 19.367294,
+                "location_lon_arribo": -99.158694
+            },
+            {
+                "location_lat_retiro": 19.421138,
+                "location_lon_retiro": -99.154725,
+                "location_lat_arribo": 19.409893,
+                "location_lon_arribo": -99.179544
+            },
+            {
+                "location_lat_retiro": 19.430922,
+                "location_lon_retiro": -99.166959,
+                "location_lat_arribo": 19.428985,
+                "location_lon_arribo": -99.15664
+            },
+            {
+                "location_lat_retiro": 19.402089,
+                "location_lon_retiro": -99.17139,
+                "location_lat_arribo": 19.411272,
+                "location_lon_arribo": -99.169718
+            },
+            {
+                "location_lat_retiro": 19.4206,
+                "location_lon_retiro": -99.163312,
+                "location_lat_arribo": 19.42783,
+                "location_lon_arribo": -99.191539
+            },
+            {
+                "location_lat_retiro": 19.41568,
+                "location_lon_retiro": -99.171793,
+                "location_lat_arribo": 19.41568,
+                "location_lon_arribo": -99.171793
+            },
+            {
+                "location_lat_retiro": 19.375651,
+                "location_lon_retiro": -99.18558,
+                "location_lat_arribo": 19.398946,
+                "location_lon_arribo": -99.183254
+            },
+            {
+                "location_lat_retiro": 19.41199,
+                "location_lon_retiro": -99.155699,
+                "location_lat_arribo": 19.419515,
+                "location_lon_arribo": -99.166299
+            },
+            {
+                "location_lat_retiro": 19.419214,
+                "location_lon_retiro": -99.169732,
+                "location_lat_arribo": 19.4206,
+                "location_lon_arribo": -99.163312
+            },
+            {
+                "location_lat_retiro": 19.419515,
+                "location_lon_retiro": -99.166299,
+                "location_lat_arribo": 19.411402,
+                "location_lon_arribo": -99.178666
+            },
+            {
+                "location_lat_retiro": 19.415192,
+                "location_lon_retiro": -99.154837,
+                "location_lat_arribo": 19.430964,
+                "location_lon_arribo": -99.160206
+            },
+            {
+                "location_lat_retiro": 19.431655,
+                "location_lon_retiro": -99.158668,
+                "location_lat_arribo": 19.425468,
+                "location_lon_arribo": -99.175166
+            },
+            {
+                "location_lat_retiro": 19.410245,
+                "location_lon_retiro": -99.175612,
+                "location_lat_arribo": 19.416959,
+                "location_lon_arribo": -99.165702
+            },
+            {
+                "location_lat_retiro": 19.406765,
+                "location_lon_retiro": -99.178321,
+                "location_lat_arribo": 19.411402,
+                "location_lon_arribo": -99.178666
+            },
+            {
+                "location_lat_retiro": 19.416959,
+                "location_lon_retiro": -99.165702,
+                "location_lat_arribo": 19.443735,
+                "location_lon_arribo": -99.152203
+            },
+            {
+                "location_lat_retiro": 19.398532,
+                "location_lon_retiro": -99.157308,
+                "location_lat_arribo": 19.365519,
+                "location_lon_arribo": -99.166017
+            },
+            {
+                "location_lat_retiro": 19.42679,
+                "location_lon_retiro": -99.15554,
+                "location_lat_arribo": 19.421138,
+                "location_lon_arribo": -99.154725
+            },
+            {
+                "location_lat_retiro": 19.431655,
+                "location_lon_retiro": -99.158668,
+                "location_lat_arribo": 19.43757,
+                "location_lon_arribo": -99.15468
+            },
+            {
+                "location_lat_retiro": 19.43757,
+                "location_lon_retiro": -99.15468,
+                "location_lat_arribo": 19.42679,
+                "location_lon_arribo": -99.15554
+            },
+            {
+                "location_lat_retiro": 19.42592,
+                "location_lon_retiro": -99.190755,
+                "location_lat_arribo": 19.440077,
+                "location_lon_arribo": -99.204316
+            },
+            {
+                "location_lat_retiro": 19.429115,
+                "location_lon_retiro": -99.162614,
+                "location_lat_arribo": 19.436287,
+                "location_lon_arribo": -99.174888
+            },
+            {
+                "location_lat_retiro": 19.419515,
+                "location_lon_retiro": -99.166299,
+                "location_lat_arribo": 19.426442,
+                "location_lon_arribo": -99.164323
+            },
+            {
+                "location_lat_retiro": 19.42944,
+                "location_lon_retiro": -99.20243,
+                "location_lat_arribo": 19.446073,
+                "location_lon_arribo": -99.181654
+            },
+            {
+                "location_lat_retiro": 19.420419,
+                "location_lon_retiro": -99.172676,
+                "location_lat_arribo": 19.401986,
+                "location_lon_arribo": -99.156366
+            },
+            {
+                "location_lat_retiro": 19.425907,
+                "location_lon_retiro": -99.190733,
+                "location_lat_arribo": 19.424282,
+                "location_lon_arribo": -99.180334
+            },
+            {
+                "location_lat_retiro": 19.385571,
+                "location_lon_retiro": -99.158188,
+                "location_lat_arribo": 19.393832,
+                "location_lon_arribo": -99.171466
+            },
+            {
+                "location_lat_retiro": 19.422705,
+                "location_lon_retiro": -99.169922,
+                "location_lat_arribo": 19.435637,
+                "location_lon_arribo": -99.150137
+            },
+            {
+                "location_lat_retiro": 19.428009,
+                "location_lon_retiro": -99.169918,
+                "location_lat_arribo": 19.430992,
+                "location_lon_arribo": -99.163593
+            },
+            {
+                "location_lat_retiro": 19.363071,
+                "location_lon_retiro": -99.158292,
+                "location_lat_arribo": 19.373228,
+                "location_lon_arribo": -99.17826
+            },
+            {
+                "location_lat_retiro": 19.43767,
+                "location_lon_retiro": -99.16402,
+                "location_lat_arribo": 19.419725,
+                "location_lon_arribo": -99.175778
+            },
+            {
+                "location_lat_retiro": 19.402089,
+                "location_lon_retiro": -99.17139,
+                "location_lat_arribo": 19.408722,
+                "location_lon_arribo": -99.17669
+            },
+            {
+                "location_lat_retiro": 19.414191,
+                "location_lon_retiro": -99.177123,
+                "location_lat_arribo": 19.386568,
+                "location_lon_arribo": -99.175089
+            },
+            {
+                "location_lat_retiro": 19.424161,
+                "location_lon_retiro": -99.153117,
+                "location_lat_arribo": 19.407447,
+                "location_lon_arribo": -99.155717
+            },
+            {
+                "location_lat_retiro": 19.41199,
+                "location_lon_retiro": -99.155699,
+                "location_lat_arribo": 19.403204,
+                "location_lon_arribo": -99.16596
+            },
+            {
+                "location_lat_retiro": 19.427317,
+                "location_lon_retiro": -99.166662,
+                "location_lat_arribo": 19.440077,
+                "location_lon_arribo": -99.204316
+            },
+            {
+                "location_lat_retiro": 19.438143,
+                "location_lon_retiro": -99.17519,
+                "location_lat_arribo": 19.430922,
+                "location_lon_arribo": -99.166959
+            },
+            {
+                "location_lat_retiro": 19.40702,
+                "location_lon_retiro": -99.169587,
+                "location_lat_arribo": 19.415121,
+                "location_lon_arribo": -99.166661
+            },
+            {
+                "location_lat_retiro": 19.42223,
+                "location_lon_retiro": -99.164297,
+                "location_lat_arribo": 19.417715,
+                "location_lon_arribo": -99.162729
+            },
+            {
+                "location_lat_retiro": 19.43767,
+                "location_lon_retiro": -99.16402,
+                "location_lat_arribo": 19.428679,
+                "location_lon_arribo": -99.206605
+            },
+            {
+                "location_lat_retiro": 19.397693,
+                "location_lon_retiro": -99.172981,
+                "location_lat_arribo": 19.4015,
+                "location_lon_arribo": -99.156406
+            },
+            {
+                "location_lat_retiro": 19.394693,
+                "location_lon_retiro": -99.175531,
+                "location_lat_arribo": 19.41123,
+                "location_lon_arribo": -99.18551
+            },
+            {
+                "location_lat_retiro": 19.373813,
+                "location_lon_retiro": -99.157387,
+                "location_lat_arribo": 19.426442,
+                "location_lon_arribo": -99.164323
+            },
+            {
+                "location_lat_retiro": 19.418858,
+                "location_lon_retiro": -99.176776,
+                "location_lat_arribo": 19.402584,
+                "location_lon_arribo": -99.178199
+            },
+            {
+                "location_lat_retiro": 19.367864,
+                "location_lon_retiro": -99.163626,
+                "location_lat_arribo": 19.375541,
+                "location_lon_arribo": -99.177894
+            },
+            {
+                "location_lat_retiro": 19.410343,
+                "location_lon_retiro": -99.172831,
+                "location_lat_arribo": 19.410343,
+                "location_lon_arribo": -99.172831
+            },
+            {
+                "location_lat_retiro": 19.424137,
+                "location_lon_retiro": -99.161317,
+                "location_lat_arribo": 19.411797,
+                "location_lon_arribo": -99.17588
+            },
+            {
+                "location_lat_retiro": 19.418858,
+                "location_lon_retiro": -99.176776,
+                "location_lat_arribo": 19.425468,
+                "location_lon_arribo": -99.175166
+            },
+            {
+                "location_lat_retiro": 19.375541,
+                "location_lon_retiro": -99.177894,
+                "location_lat_arribo": 19.37455556,
+                "location_lon_arribo": -99.180505555556
+            },
+            {
+                "location_lat_retiro": 19.430722,
+                "location_lon_retiro": -99.133698,
+                "location_lat_arribo": 19.430722,
+                "location_lon_arribo": -99.133698
+            },
+            {
+                "location_lat_retiro": 19.406683,
+                "location_lon_retiro": -99.167962,
+                "location_lat_arribo": 19.430722,
+                "location_lon_arribo": -99.133698
+            },
+            {
+                "location_lat_retiro": 19.406296,
+                "location_lon_retiro": -99.172117,
+                "location_lat_arribo": 19.418649,
+                "location_lon_arribo": -99.172127
+            },
+            {
+                "location_lat_retiro": 19.375651,
+                "location_lon_retiro": -99.18558,
+                "location_lat_arribo": 19.379246,
+                "location_lon_arribo": -99.179344
+            },
+            {
+                "location_lat_retiro": 19.382851,
+                "location_lon_retiro": -99.158204,
+                "location_lat_arribo": 19.372796,
+                "location_lon_arribo": -99.172558
+            },
+            {
+                "location_lat_retiro": 19.408736,
+                "location_lon_retiro": -99.169913,
+                "location_lat_arribo": 19.419725,
+                "location_lon_arribo": -99.175778
+            },
+            {
+                "location_lat_retiro": 19.373228,
+                "location_lon_retiro": -99.17826,
+                "location_lat_arribo": 19.369467,
+                "location_lon_arribo": -99.179401
+            },
+            {
+                "location_lat_retiro": 19.384378,
+                "location_lon_retiro": -99.176097,
+                "location_lat_arribo": 19.428009,
+                "location_lon_arribo": -99.169918
+            },
+            {
+                "location_lat_retiro": 19.428009,
+                "location_lon_retiro": -99.169918,
+                "location_lat_arribo": 19.419515,
+                "location_lon_arribo": -99.166299
+            },
+            {
+                "location_lat_retiro": 19.412877,
+                "location_lon_retiro": -99.166986,
+                "location_lat_arribo": 19.414191,
+                "location_lon_arribo": -99.177123
+            },
+            {
+                "location_lat_retiro": 19.394693,
+                "location_lon_retiro": -99.175531,
+                "location_lat_arribo": 19.393162,
+                "location_lon_arribo": -99.17956
+            },
+            {
+                "location_lat_retiro": 19.405533,
+                "location_lon_retiro": -99.164913,
+                "location_lat_arribo": 19.424674,
+                "location_lon_arribo": -99.163292
+            },
+            {
+                "location_lat_retiro": 19.422705,
+                "location_lon_retiro": -99.169922,
+                "location_lat_arribo": 19.429057,
+                "location_lon_arribo": -99.17966
+            },
+            {
+                "location_lat_retiro": 19.424768,
+                "location_lon_retiro": -99.173261,
+                "location_lat_arribo": 19.422705,
+                "location_lon_arribo": -99.169922
+            },
+            {
+                "location_lat_retiro": 19.4167,
+                "location_lon_retiro": -99.1791,
+                "location_lat_arribo": 19.4128,
+                "location_lon_arribo": -99.1828
+            },
+            {
+                "location_lat_retiro": 19.414191,
+                "location_lon_retiro": -99.177123,
+                "location_lat_arribo": 19.426442,
+                "location_lon_arribo": -99.164323
+            },
+            {
+                "location_lat_retiro": 19.426442,
+                "location_lon_retiro": -99.164323,
+                "location_lat_arribo": 19.426442,
+                "location_lon_arribo": -99.164323
+            },
+            {
+                "location_lat_retiro": 19.375591,
+                "location_lon_retiro": -99.178084,
+                "location_lat_arribo": 19.38205,
+                "location_lon_arribo": -99.173291
+            },
+            {
+                "location_lat_retiro": 19.425835,
+                "location_lon_retiro": -99.177924,
+                "location_lat_arribo": 19.42223,
+                "location_lon_arribo": -99.164297
+            },
+            {
+                "location_lat_retiro": 19.42647,
+                "location_lon_retiro": -99.16822,
+                "location_lat_arribo": 19.430098,
+                "location_lon_arribo": -99.200074
+            },
+            {
+                "location_lat_retiro": 19.426765,
+                "location_lon_retiro": -99.193752,
+                "location_lat_arribo": 19.426765,
+                "location_lon_arribo": -99.193752
+            },
+            {
+                "location_lat_retiro": 19.424541,
+                "location_lon_retiro": -99.156204,
+                "location_lat_arribo": 19.403204,
+                "location_lon_arribo": -99.16596
+            },
+            {
+                "location_lat_retiro": 19.372147,
+                "location_lon_retiro": -99.16158,
+                "location_lat_arribo": 19.4079,
+                "location_lon_arribo": -99.18795
+            },
+            {
+                "location_lat_retiro": 19.436274,
+                "location_lon_retiro": -99.158425,
+                "location_lat_arribo": 19.428485,
+                "location_lon_arribo": -99.1338
+            },
+            {
+                "location_lat_retiro": 19.381292,
+                "location_lon_retiro": -99.170171,
+                "location_lat_arribo": 19.427317,
+                "location_lon_arribo": -99.166662
+            },
+            {
+                "location_lat_retiro": 19.382851,
+                "location_lon_retiro": -99.158204,
+                "location_lat_arribo": 19.375394,
+                "location_lon_arribo": -99.16375
+            },
+            {
+                "location_lat_retiro": 19.414773,
+                "location_lon_retiro": -99.178433,
+                "location_lat_arribo": 19.419725,
+                "location_lon_arribo": -99.175778
+            },
+            {
+                "location_lat_retiro": 19.389358,
+                "location_lon_retiro": -99.182606,
+                "location_lat_arribo": 19.4206,
+                "location_lon_arribo": -99.163312
+            },
+            {
+                "location_lat_retiro": 19.43676,
+                "location_lon_retiro": -99.15387,
+                "location_lat_arribo": 19.421138,
+                "location_lon_arribo": -99.154725
+            },
+            {
+                "location_lat_retiro": 19.4206,
+                "location_lon_retiro": -99.163312,
+                "location_lat_arribo": 19.427132,
+                "location_lon_arribo": -99.160369
+            },
+            {
+                "location_lat_retiro": 19.42995,
+                "location_lon_retiro": -99.14591,
+                "location_lat_arribo": 19.446073,
+                "location_lon_arribo": -99.181654
+            },
+            {
+                "location_lat_retiro": 19.433321,
+                "location_lon_retiro": -99.154752,
+                "location_lat_arribo": 19.43425,
+                "location_lon_arribo": -99.162508
+            },
+            {
+                "location_lat_retiro": 19.42647,
+                "location_lon_retiro": -99.16822,
+                "location_lat_arribo": 19.420472,
+                "location_lon_arribo": -99.168238
+            },
+            {
+                "location_lat_retiro": 19.418649,
+                "location_lon_retiro": -99.172127,
+                "location_lat_arribo": 19.412877,
+                "location_lon_arribo": -99.166986
+            },
+            {
+                "location_lat_retiro": 19.423542,
+                "location_lon_retiro": -99.172494,
+                "location_lat_arribo": 19.42647,
+                "location_lon_arribo": -99.16822
+            },
+            {
+                "location_lat_retiro": 19.429115,
+                "location_lon_retiro": -99.162614,
+                "location_lat_arribo": 19.43767,
+                "location_lon_arribo": -99.16402
+            },
+            {
+                "location_lat_retiro": 19.446073,
+                "location_lon_retiro": -99.181654,
+                "location_lat_arribo": 19.430267,
+                "location_lon_arribo": -99.14861
+            },
+            {
+                "location_lat_retiro": 19.410737,
+                "location_lon_retiro": -99.165716,
+                "location_lat_arribo": 19.41199,
+                "location_lon_arribo": -99.155699
+            },
+            {
+                "location_lat_retiro": 19.430267,
+                "location_lon_retiro": -99.14861,
+                "location_lat_arribo": 19.430267,
+                "location_lon_arribo": -99.14861
+            },
+            {
+                "location_lat_retiro": 19.414303,
+                "location_lon_retiro": -99.157542,
+                "location_lat_arribo": 19.411797,
+                "location_lon_arribo": -99.17588
+            }
+        ]
+    }
+}

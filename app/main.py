@@ -6,11 +6,13 @@ from stations import stations_data, stations_dict
 import json
   
 # Opening JSON file
-f = open('./sample.json',)
+f = open('./sample6.json',)
+s = open('./topstation1.json',)
   
 # returns JSON object as 
 # a dictionary
 datajson = json.load(f)
+datastations = json.load(s)
 
 app=FastAPI()
 
@@ -57,12 +59,15 @@ def get_stationsI(request:Request):
         "trip_dict":building_dict,
         "trip_dictI":building_dictI,
         "list_of_trips":trip_dict,
-        "stationsI":stations
+        "stationsI":stations,
+        'topStation':datastations
         })
 
 
 @app.get("/indexv2")
 def read_test(request:Request):
+
+
     return templates.TemplateResponse(f"indexv2.html", {
         "request":request,
         "fake_data":datajson

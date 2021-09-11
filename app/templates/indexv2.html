@@ -1,6 +1,80 @@
 {% extends "layout.html" %}
 {% block content %}
 <div>
+    <div class="mb-5">
+        <div class="flex justify-start items-center ml-7 mb-5">
+            <div>
+                <p class="text-4xl font-bold">2021 Stats</p>
+            </div>
+        </div>
+        <div class="grid md:grid-cols-4 grid-cols-2 gap-2 md:gap-4">
+            <div class="w-52 h-32 md:w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
+                <div class="h-10 bg-red-400 flex items-center">
+                <p class="mr-0 text-white text-lg pl-5">TRIPS</p>
+                </div>
+                <div class="flex px-5 pt-3 mb-2 text-sm text-gray-600">
+                <p>TOTAL</p>
+                </div>
+                <p class="text-3xl ml-5">{{"{:,}".format(fake_data.total_trips)}}</p>
+                <!-- <hr > -->
+            </div>
+            <div class="w-52 h-32 md:w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
+                <div class="h-10 bg-green-400 flex items-center">
+                <p class="mr-0 text-white text-lg pl-5">TRIP TIME</p>
+                </div>
+                <div class="flex px-5 pt-3 mb-2 text-sm text-gray-600">
+                <p>AVG.</p>
+                </div>
+                <p class="text-3xl ml-5">{{fake_data.median_trip_time}} min.</p>
+                <!-- <hr > -->
+            </div>
+            <div class="w-52 h-32 md:w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
+                <div class="h-10 bg-blue-400 flex items-center">
+                <p class="mr-0 text-white text-lg pl-5">TRIP DISTANCE</p>
+                </div>
+                <div class="flex px-5 pt-3 mb-2 text-sm text-gray-600">
+                <p>AVG.</p>
+                </div>
+                <p class="text-3xl ml-5">{{fake_data.avg_km_per_trip}} kms.</p>
+                <!-- <hr > -->
+            </div>
+            <div class="w-52 h-32 md:w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
+                <div class="h-10 bg-indigo-400 flex items-center">
+                    <p class="mr-0 text-white text-sm md:text-lg pl-5">MOST POPULAR STATION</p>
+                </div>
+                <div class="flex px-5 pt-3 mb-2 text-lg text-black font-semibold">
+                    <p>271 AV. CENTRAL-J. MENESES</p>
+                </div>
+                <!-- <hr > -->
+            </div>
+        </div>
+
+        <div class="grid grid-cols-6 gap-2 mx-7 mt-5">
+            <div class="col-span-3"><canvas class="shadow-md p-2" height="147" id="barAge"></canvas></div>
+            <div class="col-span-3">
+                <div class="overflow-y-auto h-80 p-4 shadow">
+                    <div class="flex justify-center items-center"><h2 class="font-semibold text-lg mb-3">2021 - Most Popular Routes</h2></div>
+                    <table>
+                        <tr>
+                            <th>Start Station</th>
+                            <th>End Station</th>
+                            <th>Trips</th>
+                        </tr>
+                        {% for i in fake_data.top_100_trips.dict_of_trips%}
+                        <tr class="hover:cursor-pointer">
+                            <td>{{i.name_retiro | safe}}</td>
+                            <td>{{i.name_arribo | safe}}</td>
+                            <td>{{i.viaje | safe}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="ml-7 grid grid-cols-12">
+            <div class="col-span-4"><canvas class="shadow-lg p-5" height="200" id="barMonth"></canvas></div>
+        </div>
+    </div>
     <div class="flex justify-start items-center ml-7 mb-5">
         <div>
             <p class="text-4xl font-bold">Monthly Stats</p>
@@ -67,12 +141,18 @@
 </div>
 
 <script>
-    console.log({{fake_data.topBike.last_trips | safe}})
+    
     const ctx = document.getElementById('myChart').getContext('2d');
     const ctxI = document.getElementById('myChartI').getContext('2d');
     const ctxII = document.getElementById('myChartII').getContext('2d');
     const ctxIII = document.getElementById('myChartIII').getContext('2d');
+    const barAge = document.getElementById('barAge').getContext('2d');
+    const barMonth = document.getElementById('barMonth').getContext('2d');
 
+    const testList = {{fake_data.top_100_trips.name_retiro | safe}}
+    
+    
+    
     const donut = new Chart(ctxI, {
         plugins: [ChartDataLabels],
         type: 'doughnut',
@@ -170,6 +250,97 @@
         }
     });
 
+    const barMonths = new Chart(barMonth, {
+        type: 'bar',
+        data: {
+            labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul"],
+            datasets: [{
+                label: '# of Trips per Day',
+                data: {{fake_data.trips_per_month.trips | safe }},
+                backgroundColor: [
+                    'rgba(101, 178, 198, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(101, 178, 198, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.2
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    grid:{
+                        display:false
+                    }
+                },
+                x:{
+                    beginAtZero: true,
+                    grid:{
+                        display:false
+                    }
+                    
+                }
+            },
+            maintainAspectRatio: true,
+            plugins:{
+                title:{
+                    display:true,
+                    text:"Distribution of trips by month.",
+                    font:{
+                        size:16,
+                        weight:"bold"}
+                    }
+            },
+        }
+    });
+
+    const barAges = new Chart(barAge, {
+        type: 'bar',
+        data: {
+            labels: {{fake_data.age_distribution.age| safe}},
+            datasets: [{
+                label: '# of Trips per Day',
+                data: {{fake_data.age_distribution.trips| safe}},
+                backgroundColor: [
+                    'rgba(101, 178, 198, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(101, 178, 198, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.2
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    grid:{
+                        display:false
+                    }
+                },
+                x:{
+                    beginAtZero: true,
+                    grid:{
+                        display:false
+                    }
+                    
+                }
+            },
+            maintainAspectRatio: true,
+            plugins:{
+                title:{
+                    display:true,
+                    text:"2021 - Distribution of users by Age.",
+                    font:{
+                        size:16,
+                        weight:"bold"}
+                    }
+            },
+        }
+    });
     const myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -259,11 +430,37 @@
             },
         }
     })
+    const lat = {{fake_data.topBike.last_trips | safe}}
+    const latarribo = []
+    const lonarribo = []
+    const latretiro = []
+    const lonretiro = []
+    
+    for (let i = 0; i < lat.length; i++) {
+        latarribo.push(lat[i]["location_lat_arribo"])
+        lonarribo.push(lat[i]["location_lon_arribo"])
+        latretiro.push(lat[i]["location_lat_retiro"])
+        lonretiro.push(lat[i]["location_lon_retiro"])
+
+    }
 
 
     const mymap = L.map('mapid').setView([19.41696,-99.1657], 13);
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
     tiles.addTo(mymap);
+
+
+    for (var i = 0; i < lat.length; i++) {
+            let polyline = L.polyline([[latarribo[i],lonarribo[i]],[latretiro[i], lonretiro[i]]])
+            .addTo(mymap);
+    }
+
+    // var polylinePoints = [
+    //     [latarribo[1],lonarribo[1]],
+    //     [latretiro[1], lonretiro[1]]
+    // ];            
+
+    
 
 </script>
 {% endblock %}
