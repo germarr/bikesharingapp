@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    
+    <!--Tailwind CDN-->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!--ChartJS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2 "></script>
+
+    <!--Personal JS-->
+    <script src="./dash-template.js"></script>
+    
+    <!--Leaflet Package-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <style>
+        table{
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+        }
+        td {
+            text-align: center;
+        }
+
+        tr:nth-child(even){
+            background-color: #dddddd;
+        }
+
+        #mapid{
+            height: 380px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!--Navbar-->
+    <div class="grid grid-cols-12">
+        <div class="col-span-12 md:col-span-2 bg-blue-900 py-3">
+            <div class="flex justify-center items-center md:mt-2">
+                <h1 class="font-semibold text-white">Ecobici</h1>
+            </div>
+        </div>
+        <div class="col-span-12 md:col-span-10 bg-white py-3 border-b-2 shadow-sm">
+            <div class="flex justify-between items-center mr-2">
+                <div class="flex ml-8">
+                    <a class="text-gray-800 hover:text-gray-500 font-bold border-b-4 border-blue-600 cursor-pointer">Dashboard</a>
+                    <a class="text-gray-800 hover:text-gray-500 mx-24 md:mx-14 font-bold cursor-pointer">Predictions</a>
+                    <a class="text-gray-800 hover:text-gray-500 font-bold cursor-pointer">Docs</a>
+                    <!-- <a id="exampleID" class="ml-14 text-gray-800 hover:text-gray-500 font-bold cursor-pointer">Docs</a> -->
+                </div>
+                <div class="flex">
+                    <img class="mr-4 invisible md:visible shadow rounded-full max-w-full h-10 border-none" src="https://pyxis.nymag.com/v1/imgs/e6c/02c/cbe672af6609198720b69efd475ab5f641-avatar-last-airbender.rsquare.w1200.jpg" alt="">
+                    <select class="invisible md:visible font-semibold text-gray-900 mr-5">
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END OF NAVBAR-->
+
+    <!--CARDS-->
+    <div class="grid grid-cols-12">
+        <div class="col-start-1 col-end-13 md:col-start-3 md:col-end-13 mt-3">
+            
+            <!-- Bike Select Menu -->
+            <div class="grid grid-cols-12 md:grid-cols-5 h-24 bg-white md:mr-5 pl-5 shadow-md md:shadow-none">
+                <div class="grid col-start-1 col-end-4 md:col-end-2 place-content-center">
+                    <h1 class="text-lg md:text-3xl font-semibold">Ecobici Dashboard</h1>
+                </div>
+                <div class="grid col-start-4 col-end-7 md:col-start-2 md:col-span-1 md:content-start mt-2 ml-3">
+                    <div><h2 class="text-md md:text-xl font-bold">Year</h2></div>
+                    <div class="relative inline-block w-3/4 text-gray-700">
+                        <select id="selectYears" class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" placeholder="Regular input">
+                          <option value="2018">All</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                        </div>
+                      </div>
+                </div>
+                    <div class="grid col-start-7 col-end-10 md:col-start-3 md:col-span-1 md:content-start mt-2">
+                        <div><h2 class="text-md md:text-xl font-bold">Month</h2></div>
+                        <div class="relative inline-block w-3/4 text-gray-700">
+                            <select id="selectMonths" class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" placeholder="Regular input">
+                              <option value="All">All</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                            </div>
+                          </div>
+                    </div>
+                <div class="grid col-start-10 col-end-13 md:col-start-4 md:col-span-1 md:content-start mt-2">
+                    <div><h2 class="text-md md:text-xl font-bold">Day</h2></div>
+                    <div class="relative inline-block w-3/4 text-gray-700">
+                        <select id="selectDays" class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" placeholder="Regular input">
+                          <option value="All">All</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div id="searchbutton" class="flex justify-center items-center cursor-pointer bg-blue-600 mr-0 md:mr-5 hover:bg-blue-400">
+                <button class="text-white text-lg py-1 font-semibold">Search!</button>
+            </div>
+            <!-- END OF DASH SELECT MENU -->
+
+            <div class="grid grid-flow-col md:grid-cols-5 md:grid-rows-1 grid-cols-2 grid-rows-3 gap-4 mt-5 mx-3 md:mx-0 md:mr-5">
+                <!-- CARD 1 -->
+                <div class="bg-white shadow-md w-56 h-24 rounded-bl-2xl">
+                    <div class="flex items-center">
+                        <p id="card1Title" class="text-gray-400 mt-2 ml-4 text-md font-light"></p>
+                    </div>
+                    <div class="flex items-center">
+                        <p id="card1" class="text-gray-800 text-2xl mt-1 ml-4 font-semibold"></p>
+                        <div id="card1Color">
+                            <p id="card1Compare"></p>
+                        </div>
+                    </div>
+                </div>
+                <!--END CARD 1-->
+                <!-- CARD 2 -->
+                <div class="bg-white shadow-md w-56 h-24 rounded-bl-2xl">
+                    <div class="flex items-center">
+                        <p id="card2Title" class="text-gray-400 mt-2 ml-4 text-md font-light"></p>
+                    </div>
+                    <div class="flex items-center">
+                        <p id="card2" class="text-gray-800 text-2xl mt-1 ml-4 font-semibold"></p>
+                        <p class="text-gray-800 text-2xl mt-1 ml-2 font-light">min.</p>
+                        <div id="card2Color">
+                            <p id="card2Compare"></p>
+                        </div>
+                    </div>
+                </div>
+                <!--END CARD 2-->
+                <!-- CARD 3 -->
+                <div class="bg-white shadow-md w-56 h-24 rounded-bl-2xl">
+                    <div class="flex items-center">
+                        <p id="card3Title" class="text-gray-400 mt-2 ml-4 text-md font-light"></p>
+                    </div>
+                    <div class="flex items-center">
+                        <p id="card3" class="text-gray-800 text-2xl mt-1 ml-4 font-semibold"></p>
+                        <p class="text-gray-800 text-2xl mt-1 ml-2 font-light">kms.</p>
+                        <div id="card3Color">
+                            <p id="card3Compare"></p>
+                        </div>
+                    </div>
+                </div>
+                <!--END CARD 3-->
+                <!-- CARD 4 -->
+                <div class="bg-white shadow-md w-56 h-24 rounded-bl-2xl">
+                    <div class="flex items-center">
+                        <p id="card4Title" class="text-gray-400 mt-2 ml-4 text-md font-light"></p>
+                    </div>
+                    <div class="flex items-center">
+                        <p id="card4" class="text-gray-800 text-2xl mt-1 ml-4 font-semibold"></p>
+                        <p class="text-gray-800 text-2xl mt-1 ml-2 font-light"></p>
+                        <div id="card4Color">
+                            <p id="card4Compare"></p>
+                        </div>
+                    </div>
+                </div>
+                <!--END CARD 4-->
+                <!-- CARD 5 -->
+                <div class="bg-white shadow-md w-56 h-24 rounded-bl-2xl">
+                    <div class="flex items-center">
+                        <p id="card5Title" class="text-gray-400 mt-2 ml-4 text-md font-light"></p>
+                    </div>
+                    <div class="flex items-center">
+                        <p class="text-gray-800 text-2xl mt-1 ml-4 font-semibold">$</p>
+                        <p id="card5" class="text-gray-800 text-2xl mt-1 font-semibold"></p>
+                        <div id="card5Color">
+                            <p id="card5Compare"></p>
+                        </div>
+                    </div>
+                </div>
+                <!--END CARD 5-->
+            </div>
+        </div>
+    </div>
+    <!--END OF CARDS-->
+
+
+    <div class="grid grid-cols-12 mt-2 gap-4">
+        <!-- Line Chart. Monthly Trips. -->
+        <div class="col-span-12 md:col-start-3 md:col-end-6 mt-3 bg-white md:rounded-b-lg shadow-md">
+            <div class="px-4 mt-5 mb-5">
+                <h1 class="text-xl font-bold">Total trips per month.</h1>
+                <p class="text-md text-gray-600 font-extralight">2021</p>
+            </div>
+            <div class="px-1 pb-2">
+                <canvas class='md:px-0 md:h-72 md:pb-0 px-3 md:px-6 h-48' id="barAge"></canvas>
+            </div>
+        </div>
+        <!-- END OF LINE CHART-->
+
+        <!-- Line Chart. Monthly Trips.-->
+        <div class="col-span-6 md:col-start-6 md:col-end-9 bg-white rounded-b-lg shadow-md md:ml-0 ml-3 mt-1 md:mt-3">
+            <div class="px-4 pt-5">
+                <h1 class="text-lg md:text-xl font-bold">Total trips per day of week.</h1>
+                <p class="text-md text-gray-600 font-extralight">2021</p>
+            </div>
+            <div class="pb-5 md:mt-5">
+                <canvas class='md:px-0 md:h-72 md:pb-0 px-3 md:px-6 h-48' id="barWeek"></canvas>
+            </div>
+        </div>
+        <!-- END OF LINE CHART-->
+
+        <!-- DONUT CHART FOR GENDER -->
+        <div class="md:ml-0 col-span-6 md:col-start-9 md:col-end-13 shadow-md rounded-b-lg bg-white mr-3 md:mt-3 mt-1">
+            <div class="px-4 pt-4">
+                <h1 class="text-lg md:text-xl font-bold">Distribution by Gender.</h1>
+                <p class="text-md text-gray-600 font-extralight">2021</p>
+            </div>
+            <div class="md:px-16 pb-5">
+                <canvas id="donutchart"></canvas>
+            </div>
+        </div>
+        <!--END DONUT CHART-->
+    </div>
+    <div class="mt-5">
+        <div class="grid md:grid-cols-12 mb-6 gap-4">
+            <!-- STATION TABLE -->
+            <div class="col-span-12 md:col-start-3 md:col-end-7 shadow-md md:rounded-b-xl bg-white overflow-y-auto pb-7 md:pb-0 md:max-h-96 mb-5 px-4">
+                <div class="mt-5">
+                    <h1 class="text-xl font-bold">Most common routes.</h1>
+                    <p class="text-md text-gray-600 font-extralight">2021</p>
+                </div>
+                <table class="mt-5">
+                    <tr>
+                        <th>Start Station</th>
+                        <th>End Station</th>
+                        <th>Trips</th>
+                    </tr>
+                </table>
+            </div>
+            <!--END OF TABLE-->
+            <!-- Top Station Map -->
+            <div class="col-span-12 md:col-start-7 md:col-end-13 shadow-md rounded-b-xl bg-white md:mr-5">
+                <div class="px-4 pt-4">
+                    <h1 class="text-xl font-bold">Top Station.</h1>
+                    <p class="text-md text-gray-600 font-extralight">2021</p>
+                </div>
+                <div class="pt-5" id="maxMap">
+                    <div id="mapid"></div>
+                </div> 
+            </div>
+            <!-- END TOP STATION MAP -->
+        </div>
+    </div>
+</body>
+</html>
